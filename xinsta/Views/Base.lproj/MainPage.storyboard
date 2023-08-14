@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aeK-rP-cWp">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -24,16 +24,16 @@
                                     <constraint firstAttribute="width" constant="40" id="b8k-X9-Qn6"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="570" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KQR-8f-jcc">
-                                <rect key="frame" x="0.0" y="127" width="393" height="725"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="549" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KQR-8f-jcc">
+                                <rect key="frame" x="0.0" y="127" width="393" height="628"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTableViewCell" rowHeight="570" id="h5x-12-xuP" customClass="MainTableViewCell" customModule="xinsta" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="570"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTableViewCell" rowHeight="549" id="h5x-12-xuP" customClass="MainTableViewCell" customModule="xinsta" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="549"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h5x-12-xuP" id="D5m-Sb-BRF">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="570"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="549"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="WkM-n9-k9W">
@@ -177,11 +177,31 @@
                             <constraint firstItem="gYZ-5q-B0O" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="QQw-go-zPb"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="home_empty" selectedImage="home" id="fS2-1D-Pjq"/>
                     <connections>
+                        <outlet property="tabBar" destination="fS2-1D-Pjq" id="pI6-56-hLh"/>
                         <outlet property="tableView" destination="KQR-8f-jcc" id="Edh-t2-qau"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973.28244274809151" y="3.5211267605633805"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ctd-8K-OCt">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="aeK-rP-cWp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qV1-Xa-S3Q">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="tVs-cP-rkd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UN0-tC-9PB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="46.564885496183201" y="3.5211267605633805"/>
         </scene>
@@ -191,6 +211,8 @@
         <image name="XwithBG" width="2477.5" height="1813"/>
         <image name="comment" width="22" height="22.5"/>
         <image name="heart" width="24" height="21"/>
+        <image name="home" width="22" height="24"/>
+        <image name="home_empty" width="22" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

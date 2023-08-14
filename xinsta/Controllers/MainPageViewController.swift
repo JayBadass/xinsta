@@ -9,6 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
