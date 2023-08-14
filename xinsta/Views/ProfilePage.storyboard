@@ -113,7 +113,7 @@
         <!--Profile-->
         <scene sceneID="lJl-56-B5f">
             <objects>
-                <viewController id="jvY-sX-3rj" sceneMemberID="viewController">
+                <viewController id="jvY-sX-3rj" customClass="ProfilePageViewController" customModule="xinsta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bzi-AR-dhi">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -232,7 +232,7 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </collectionReusableView>
                                             </collectionView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvQ-JH-Pf7">
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvQ-JH-Pf7">
                                                 <rect key="frame" x="20" y="209" width="353" height="30"/>
                                                 <color key="backgroundColor" red="0.99141905600000002" green="0.94281793920000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
@@ -290,15 +290,26 @@
                     <navigationItem key="navigationItem" title="Profile" id="SFC-ri-YZJ">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="line.3.horizontal" catalog="system" id="2UZ-gD-7xz"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bioLabel" destination="SC2-f6-9cd" id="yI1-c2-ctX"/>
+                        <outlet property="editProfileButton" destination="QvQ-JH-Pf7" id="108-tw-Wke"/>
+                        <outlet property="followersLabel" destination="5K6-Bg-WOr" id="Qtj-De-YtL"/>
+                        <outlet property="followingLabel" destination="ne1-vv-neh" id="K4g-un-YdJ"/>
+                        <outlet property="postsCollectionView" destination="P3t-yh-Rfl" id="MIu-tg-rfo"/>
+                        <outlet property="postsLabel" destination="vwH-cr-JTD" id="Nvu-zg-2ex"/>
+                        <outlet property="profileImageView" destination="yOw-ax-nxm" id="sTx-80-k13"/>
+                        <outlet property="profilePageNavigationItem" destination="SFC-ri-YZJ" id="1Ki-Nj-rGh"/>
+                        <outlet property="usernameLabel" destination="0Pi-o1-ns7" id="5Sb-kO-Fcf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzd-qu-guk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="148.85496183206106" y="-630.28169014084506"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Profile Page View Controller-->
         <scene sceneID="ZC8-H2-z9g">
             <objects>
-                <viewController id="SsV-FD-9nA" sceneMemberID="viewController">
+                <viewController id="SsV-FD-9nA" customClass="EditProfilePageViewController" customModule="xinsta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gud-6w-9hb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,6 +324,9 @@
                                         <state key="normal" title="CANCEL">
                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="SsV-FD-9nA" eventType="touchUpInside" id="3yh-N6-9BZ"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv8-p5-aiM">
                                         <rect key="frame" x="141.66666666666666" y="0.0" width="109.66666666666666" height="29"/>
@@ -325,6 +339,9 @@
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="DONE"/>
+                                        <connections>
+                                            <action selector="doneButtonTapped:" destination="SsV-FD-9nA" eventType="touchUpInside" id="Daa-GT-9QF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -342,6 +359,9 @@
                                         <rect key="frame" x="119" y="255" width="145" height="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Change Profile Photo"/>
+                                        <connections>
+                                            <action selector="changePhotoButtonTapped:" destination="SsV-FD-9nA" eventType="touchUpInside" id="aAV-f7-eYX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -448,6 +468,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iWw-b6-ahF"/>
+                    <connections>
+                        <outlet property="bioTextField" destination="HsL-Ga-FnE" id="AeQ-3v-Ydt"/>
+                        <outlet property="nameTextField" destination="WQ5-mf-j96" id="QqN-NB-wO9"/>
+                        <outlet property="profileImageView" destination="3AM-Ut-9b0" id="W5t-jK-zbm"/>
+                        <outlet property="userNameTextField" destination="haF-kP-GRr" id="abp-mA-kdU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjg-qe-LZj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
