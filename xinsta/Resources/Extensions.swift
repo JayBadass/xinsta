@@ -26,3 +26,23 @@ extension UIImageView {
     }
     
 }
+
+extension String {
+    func truncate(to length: Int) -> String {
+        if self.count > length {
+            return String(self.prefix(length))
+        } else {
+            return self
+        }
+    }
+    func truncateIfNeeded(to lineCount: Int, truncatedSuffix: String = " ...더보기") -> String {
+        let lines = self.components(separatedBy: "\n")
+        if lines.count > lineCount {
+            let truncatedLines = Array(lines.prefix(lineCount))
+            return truncatedLines.joined(separator: "\n") + truncatedSuffix
+        } else {
+            return self
+        }
+    }
+}
+
