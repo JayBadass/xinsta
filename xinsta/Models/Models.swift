@@ -15,6 +15,7 @@ struct User {
     let profilePhoto: URL
     let counts: UserCount
     let joinDate: Date
+    let password: String
 }
 
 struct UserCount {
@@ -59,9 +60,11 @@ struct PostComment {
     let likes: [CommentLike]
 }
 
-func createDummyData() -> ([User], [UserPost]) {
+var users: [User] = []
+var posts: [UserPost] = []
+
+func createDummyData() {
     // User Dummy Data
-    var users: [User] = []
     for i in 1...5 {
         let user = User(username: "user\(i)",
                         bio: "User \(i) bio",
@@ -73,7 +76,6 @@ func createDummyData() -> ([User], [UserPost]) {
     }
 
     // User Post Dummy Data
-    var posts: [UserPost] = []
     for i in 1...100 {
         let postUser = users[i % 5]
         let post = UserPost(identifier: "post\(i)",
@@ -92,8 +94,5 @@ func createDummyData() -> ([User], [UserPost]) {
                             owner: postUser)
         posts.append(post)
     }
-
-    return (users, posts)
 }
 
-let (users, posts) = createDummyData()
