@@ -58,7 +58,6 @@ struct PostComment {
     let text: String
     let createdDate: Date
     let likes: [CommentLike]
-    let password: String
 }
 
 var users: [User] = []
