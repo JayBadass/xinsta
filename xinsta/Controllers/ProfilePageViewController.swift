@@ -19,13 +19,14 @@ class ProfilePageViewController: UIViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
+    @IBOutlet weak var readMoreButton: UIButton!
     
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var postsCollectionView: UICollectionView!
     
-    var originalText: String = ""
-    var truncatedText: String = ""
-    var labelExpanded = false
+//    var originalText: String = ""
+//    var truncatedText: String = ""
+//    var isExpanded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,17 +41,17 @@ class ProfilePageViewController: UIViewController {
         editProfileButton.layer.borderWidth = 0.5
         editProfileButton.layer.borderColor = UIColor.lightGray.cgColor
         
-//        bioLabel.numberOfLines = 3
-//        bioLabel.lineBreakMode = .byTruncatingTail
+        bioLabel.text = "Lorem \nipsum \ndolor \nsit amet, consectetur adipiscing elit. Sed quis leo quis lorem tincidunt ultrices. Curabitur euismod nisl id eros consequat, vitae malesuada sapien tempor. Fusce quis nisi sit amet augue malesuada aliquet. Donec vitae leo id massa tincidunt faucibus. Sed euismod quam a lacus sagittis, in ullamcorper nisl luctus. Mauris vitae tortor ut nisi fringilla ultricies."
         
-//        bioLabel.translatesAutoresizingMaskIntoConstraints = false
-        bioLabel.text = "Lorem ipsum dolor\n sit\n amet,\n consectetur adipiscing elit. Sed quis leo quis lorem tincidunt ultrices. Curabitur euismod nisl id eros consequat, vitae malesuada sapien tempor. Fusce quis nisi sit amet augue malesuada aliquet. Donec vitae leo id massa tincidunt faucibus. Sed euismod quam a lacus sagittis, in ullamcorper nisl luctus. Mauris vitae tortor ut nisi fringilla ultricies."
-        bioLabel.textColor = .black
-        
+        readMoreButton.isHidden = true
         updateLabelLayout(bioLabel)
         //setupReadMoreLabel()
     }
     
+ 
+
+    
+ // FIXME: 더보기/접기 글씨 없음, label 전체 터치됨
     func isTextOverflowing(_ label: UILabel) -> Bool {
         // 텍스트의 길이를 계산
         let textLength = label.text?.count ?? 0
@@ -89,117 +90,119 @@ class ProfilePageViewController: UIViewController {
         view.layoutIfNeeded()
     }
 
+
+ 
+    /*
+    func setupReadMoreLabel() {
+        originalText = "Your long text goes hereYour long text goes hereYour long textgoes hereYour long text goes\n hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes here"
+        truncatedText = originalText.truncateIfNeeded(to: 3)
+
+        let attributedString = NSMutableAttributedString(string: truncatedText)
+        if originalText != truncatedText, let linkRange = (truncatedText as NSString).range(of: " ...더보기") as NSRange? {
+            attributedString.addAttribute(.link, value: "readMore", range: linkRange)
+            bioLabel.isUserInteractionEnabled = true
+        }
+        bioLabel.attributedText = attributedString
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(readMoreTapped(_:)))
+        bioLabel.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func readMoreTapped(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: bioLabel)
+        let textContainer = NSTextContainer(size: bioLabel.bounds.size)
+        let layoutManager = NSLayoutManager()
+        layoutManager.addTextContainer(textContainer)
+
+        let textStorage = NSTextStorage(attributedString: bioLabel.attributedText ?? NSAttributedString())
+        textStorage.addLayoutManager(layoutManager)
+
+        let characterIndex = layoutManager.characterIndex(for: location, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+
+        if let linkRange = (truncatedText as NSString).range(of: " ...더보기") as NSRange? {
+            if characterIndex >= linkRange.location && characterIndex < linkRange.location + linkRange.length {
+                labelExpanded.toggle()
+
+                if labelExpanded {
+                    bioLabel.numberOfLines = 0
+                    bioLabel.text = originalText
+                } else {
+                    bioLabel.numberOfLines = 3
+                    bioLabel.text = truncatedText
+                }
+            }
+        }
+    }
     
-//    func setupReadMoreLabel() {
-//        originalText = "Your long text goes hereYour long text goes\n hereYour\n long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes here"
-//        truncatedText = originalText.truncateIfNeeded(to: 3)
-//
-//        let attributedString = NSMutableAttributedString(string: truncatedText)
-//        if originalText != truncatedText, let linkRange = (truncatedText as NSString).range(of: " ...더보기") as NSRange? {
-//            attributedString.addAttribute(.link, value: "readMore", range: linkRange)
-//            bioLabel.isUserInteractionEnabled = true
-//        }
-//        bioLabel.attributedText = attributedString
-//
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(readMoreTapped(_:)))
-//        bioLabel.addGestureRecognizer(tapGesture)
-//    }
-//
-//    @objc func readMoreTapped(_ sender: UITapGestureRecognizer) {
-//        let location = sender.location(in: bioLabel)
-//        let textContainer = NSTextContainer(size: bioLabel.bounds.size)
-//        let layoutManager = NSLayoutManager()
-//        layoutManager.addTextContainer(textContainer)
-//
-//        let textStorage = NSTextStorage(attributedString: bioLabel.attributedText ?? NSAttributedString())
-//        textStorage.addLayoutManager(layoutManager)
-//
-//        let characterIndex = layoutManager.characterIndex(for: location, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
-//
-//        if let linkRange = (truncatedText as NSString).range(of: " ...더보기") as NSRange? {
-//            if characterIndex >= linkRange.location && characterIndex < linkRange.location + linkRange.length {
-//                labelExpanded.toggle()
-//
-//                if labelExpanded {
-//                    bioLabel.numberOfLines = 0
-//                    bioLabel.text = originalText
-//                } else {
-//                    bioLabel.numberOfLines = 3
-//                    bioLabel.text = truncatedText
-//                }
-//            }
-//        }
-//    }
+    */
     
+/* FIXME: 3번째 줄이 꽉 찬 경우 더보기 생성 안됨
+        func setupReadMoreLabel() {
+            originalText = "Your long \ntext \ngoes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes here"
+            truncatedText = originalText.truncateIfNeeded(to: 3)
     
+            let attributedString = NSMutableAttributedString(string: truncatedText)
+            let range = NSRange(location: truncatedText.count - 4, length: 4) // " ...더보기" 부분에 대한 범위 설정
+            attributedString.addAttribute(.link, value: "readMore", range: range)
+            bioLabel.attributedText = attributedString
+            bioLabel.isUserInteractionEnabled = true
     
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(readMoreTapped(_:)))
+            bioLabel.addGestureRecognizer(tapGesture)
+        }
     
-    //    func setupReadMoreLabel() {
-    //        originalText = "Your long text goes hereYour long text goes\n hereYour\n long\n text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes here"
-    //        truncatedText = originalText.truncateIfNeeded(to: 3)
-    //
-    //        let attributedString = NSMutableAttributedString(string: truncatedText)
-    //        let range = NSRange(location: truncatedText.count - 4, length: 4) // " ...더보기" 부분에 대한 범위 설정
-    //        attributedString.addAttribute(.link, value: "readMore", range: range)
-    //        bioLabel.attributedText = attributedString
-    //        bioLabel.isUserInteractionEnabled = true
-    //
-    //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(readMoreTapped(_:)))
-    //        bioLabel.addGestureRecognizer(tapGesture)
-    //    }
-    //
-    //    @objc func readMoreTapped(_ sender: UITapGestureRecognizer) {
-    //        let location = sender.location(in: bioLabel)
-    //        let textContainer = NSTextContainer(size: bioLabel.bounds.size)
-    //        let layoutManager = NSLayoutManager()
-    //        layoutManager.addTextContainer(textContainer)
-    //
-    //        let textStorage = NSTextStorage(attributedString: bioLabel.attributedText ?? NSAttributedString())
-    //        textStorage.addLayoutManager(layoutManager)
-    //
-    //        let characterIndex = layoutManager.characterIndex(for: location, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
-    //
-    //        if let linkRange = bioLabel.attributedText?.string.range(of: " ...더보기") {
-    //            if characterIndex >= linkRange.lowerBound.utf16Offset(in: truncatedText) && characterIndex < linkRange.upperBound.utf16Offset(in: truncatedText) {
-    //                labelExpanded.toggle()
-    //
-    //                if labelExpanded {
-    //                    bioLabel.numberOfLines = 0
-    //                    bioLabel.text = originalText
-    //                } else {
-    //                    bioLabel.numberOfLines = 1
-    //                    bioLabel.text = truncatedText
-    //                }
-    //            }
-    //        }
-    //    }
+        @objc func readMoreTapped(_ sender: UITapGestureRecognizer) {
+            let location = sender.location(in: bioLabel)
+            let textContainer = NSTextContainer(size: bioLabel.bounds.size)
+            let layoutManager = NSLayoutManager()
+            layoutManager.addTextContainer(textContainer)
     
+            let textStorage = NSTextStorage(attributedString: bioLabel.attributedText ?? NSAttributedString())
+            textStorage.addLayoutManager(layoutManager)
     
+            let characterIndex = layoutManager.characterIndex(for: location, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
     
-    //    func setupReadMoreLabel() {
-    //        originalText = "Your long text goes\n hereYour long\n text goes\n hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes here"
-    //        truncatedText = originalText.truncateIfNeeded(to: 3)
-    //
-    //        let attributedString = NSMutableAttributedString(string: truncatedText + " ...더보기")
-    //        let range = NSRange(location: truncatedText.count, length: 6)
-    //        attributedString.addAttribute(.link, value: "readMore", range: range)
-    //        bioLabel.attributedText = attributedString
-    //        bioLabel.isUserInteractionEnabled = true
-    //
-    //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(readMoreTapped))
-    //        bioLabel.addGestureRecognizer(tapGesture)
-    //    }
-    //
-    //    @objc func readMoreTapped(_ sender: UITapGestureRecognizer) {
-    //        labelExpanded.toggle()
-    //
-    //        if labelExpanded {
-    //            bioLabel.numberOfLines = 0
-    //            bioLabel.text = originalText
-    //        } else {
-    //            bioLabel.numberOfLines = 3
-    //            bioLabel.text = truncatedText + " ...더보기"
-    //        }
-    //    }
+            if let linkRange = bioLabel.attributedText?.string.range(of: " ...더보기") {
+                if characterIndex >= linkRange.lowerBound.utf16Offset(in: truncatedText) && characterIndex < linkRange.upperBound.utf16Offset(in: truncatedText) {
+                    labelExpanded.toggle()
     
+                    if labelExpanded {
+                        bioLabel.numberOfLines = 0
+                        bioLabel.text = originalText
+                    } else {
+                        bioLabel.numberOfLines = 1
+                        bioLabel.text = truncatedText
+                    }
+                }
+            }
+        }
+ */
+    
+  /*
+        func setupReadMoreLabel() {
+            originalText = "Your long text goes\n hereYour long\n text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes hereYour long text goes here"
+            truncatedText = originalText.truncateIfNeeded(to: 3)
+    
+            let attributedString = NSMutableAttributedString(string: truncatedText + " ...더보기")
+            let range = NSRange(location: truncatedText.count, length: 6)
+            attributedString.addAttribute(.link, value: "readMore", range: range)
+            bioLabel.attributedText = attributedString
+            bioLabel.isUserInteractionEnabled = true
+    
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(readMoreTapped))
+            bioLabel.addGestureRecognizer(tapGesture)
+        }
+    
+        @objc func readMoreTapped(_ sender: UITapGestureRecognizer) {
+            labelExpanded.toggle()
+    
+            if labelExpanded {
+                bioLabel.numberOfLines = 0
+                bioLabel.text = originalText
+            } else {
+                bioLabel.numberOfLines = 3
+                bioLabel.text = truncatedText + " ...더보기"
+            }
+        }
+   */
 }

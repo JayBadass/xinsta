@@ -52,42 +52,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BT4-db-39O">
-                                <rect key="frame" x="68" y="168" width="240" height="430"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05k-e0-rZH">
-                                        <rect key="frame" x="0.0" y="98" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xb-Zn-act">
-                                                <rect key="frame" x="83" y="47" width="75" height="35"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                                <connections>
-                                                    <segue destination="1Cu-yY-Stc" kind="presentation" id="pjR-LM-eIx"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOk-sz-O8x">
-                                        <rect key="frame" x="83" y="288" width="75" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                        <connections>
-                                            <segue destination="1Cu-yY-Stc" kind="presentation" id="ySk-7O-ox5"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <viewLayoutGuide key="contentLayoutGuide" id="aKL-7e-NIk"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Wsn-vd-7M0"/>
-                            </scrollView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bug-17-frx">
+                                <rect key="frame" x="20" y="232" width="300" height="65"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="lM1-D5-LsX"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqK-c0-Q9p">
+                                <rect key="frame" x="159" y="327" width="75" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="24u-lc-65i"/>
+                                    <constraint firstAttribute="width" constant="75" id="TY6-0T-VGQ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uTA-V9-Xqh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uTA-V9-Xqh" firstAttribute="bottom" secondItem="bug-17-frx" secondAttribute="bottom" constant="472" id="U3s-FL-PFw"/>
+                            <constraint firstItem="PqK-c0-Q9p" firstAttribute="centerX" secondItem="aaA-ZU-deR" secondAttribute="centerX" id="UKg-X1-e31"/>
+                            <constraint firstItem="bug-17-frx" firstAttribute="leading" secondItem="uTA-V9-Xqh" secondAttribute="leading" constant="20" id="kaX-uJ-mah"/>
+                            <constraint firstItem="PqK-c0-Q9p" firstAttribute="top" secondItem="bug-17-frx" secondAttribute="bottom" constant="30" id="ly5-HW-k95"/>
+                            <constraint firstItem="bug-17-frx" firstAttribute="top" secondItem="uTA-V9-Xqh" secondAttribute="top" constant="129" id="tk3-aJ-qtF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EEa-ds-ECs"/>
                 </viewController>
@@ -100,7 +94,7 @@
             <objects>
                 <viewController id="1Cu-yY-Stc" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="33q-kr-Qu9">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Xpb-bS-n31"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -247,6 +241,12 @@
                                                     <segue destination="SsV-FD-9nA" kind="presentation" modalPresentationStyle="fullScreen" id="bwM-Yh-4q4"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xF3-xR-rgK">
+                                                <rect key="frame" x="298" y="166" width="75" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="더보기"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -302,6 +302,7 @@
                         <outlet property="postsLabel" destination="vwH-cr-JTD" id="Nvu-zg-2ex"/>
                         <outlet property="profileImageView" destination="yOw-ax-nxm" id="sTx-80-k13"/>
                         <outlet property="profilePageNavigationItem" destination="SFC-ri-YZJ" id="1Ki-Nj-rGh"/>
+                        <outlet property="readMoreButton" destination="xF3-xR-rgK" id="Yul-HE-qci"/>
                         <outlet property="scrollView" destination="ozq-P3-IrI" id="LTJ-0t-Rcd"/>
                         <outlet property="usernameLabel" destination="0Pi-o1-ns7" id="5Sb-kO-Fcf"/>
                     </connections>
@@ -502,9 +503,6 @@
             <point key="canvasLocation" x="-1384" y="-630"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="pjR-LM-eIx"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Image1" width="224.66667175292969" height="399.33334350585938"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
@@ -512,6 +510,9 @@
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
