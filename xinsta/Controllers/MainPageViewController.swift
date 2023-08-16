@@ -12,6 +12,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var tableView: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -19,22 +20,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
     }
     
-    let label = ["1","2","3","4","5"]
-    let img = ["suit.diamond", "suit.heart", "suit.club", "suit.spade", "hexagon"]
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return label.count
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) as! MainTableViewCell
         
-        cell.postImage.image = UIImage(systemName: img[indexPath.row])
-        cell.postText.text = label[indexPath.row]
+        cell.postImage.image = posts[indexPath.row].thumbnailImage
+        cell.postText.text = posts[indexPath.row].caption
         
         return cell
     }
