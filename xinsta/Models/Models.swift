@@ -71,7 +71,7 @@ func createDummyData() {
                         name: (first: "First\(i)", last: "Last\(i)"),
                         profilePhoto: URL(string: "https://example.com/user\(i).jpg")!,
                         counts: UserCount(followers: i*100, following: i*50, posts: i*10),
-                        joinDate: Date())
+                        joinDate: Date(), password: "user\(i)")
         users.append(user)
     }
 
