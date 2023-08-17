@@ -26,3 +26,23 @@ extension UIImageView {
     }
     
 }
+
+extension UIButton {
+    
+    var circleImage: Bool {
+        set {
+            if newValue {
+                self.layer.borderColor = UIColor.lightGray.cgColor
+                self.layer.borderWidth = 0.5
+                self.layer.cornerRadius = 0.5 * self.bounds.size.width
+                self.clipsToBounds = true
+            } else {
+                self.layer.cornerRadius = 0
+                self.clipsToBounds = true
+            }
+        } get {
+            return false
+        }
+    }
+    
+}
