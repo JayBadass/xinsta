@@ -22,6 +22,7 @@
 		D2AA11E82A8AD033005431E1 /* EditProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA11E72A8AD033005431E1 /* EditProfilePageViewController.swift */; };
 		D2BD05942A8DAF2C0087BDFB /* SignUpPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BD05932A8DAF2C0087BDFB /* SignUpPage.storyboard */; };
 		D2BD05962A8DB4600087BDFB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD05952A8DB4600087BDFB /* SignUpViewController.swift */; };
+		D2BD059B2A8DE3A70087BDFB /* SignInPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BD059A2A8DE3A70087BDFB /* SignInPage.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D2AA11E72A8AD033005431E1 /* EditProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePageViewController.swift; sourceTree = "<group>"; };
 		D2BD05932A8DAF2C0087BDFB /* SignUpPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpPage.storyboard; sourceTree = "<group>"; };
 		D2BD05952A8DB4600087BDFB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D2BD059A2A8DE3A70087BDFB /* SignInPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInPage.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				69925E772A89E56200EC6D7C /* MainPage.storyboard */,
 				D22BF9DC2A8AA28300CB22FF /* ProfilePage.storyboard */,
 				D2BD05932A8DAF2C0087BDFB /* SignUpPage.storyboard */,
+				D2BD059A2A8DE3A70087BDFB /* SignInPage.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2BD059B2A8DE3A70087BDFB /* SignInPage.storyboard in Resources */,
 				69925E862A89E5EB00EC6D7C /* .gitignore in Resources */,
 				D2BD05942A8DAF2C0087BDFB /* SignUpPage.storyboard in Resources */,
 				69925E7E2A89E56400EC6D7C /* LaunchScreen.storyboard in Resources */,
@@ -359,7 +363,7 @@
 				INFOPLIST_FILE = xinsta/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = SignUpPage;
+				INFOPLIST_KEY_UIMainStoryboardFile = SignInPage;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -390,7 +394,7 @@
 				INFOPLIST_FILE = xinsta/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = SignUpPage;
+				INFOPLIST_KEY_UIMainStoryboardFile = SignInPage;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
