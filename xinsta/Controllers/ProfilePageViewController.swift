@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfilePageViewController: UIViewController {
-
+    
     @IBOutlet weak var profilePageNavigationItem: UINavigationItem!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var postsLabel: UILabel!
@@ -88,5 +88,5 @@ class ProfilePageViewController: UIViewController {
         let editProfileVC = segue.destination as! EditProfilePageViewController
         //editProfileVC.변수 = 데이터 전달
     }
-
+    
 }
