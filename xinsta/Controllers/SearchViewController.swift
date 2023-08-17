@@ -15,17 +15,13 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var myCollectionView: UICollectionView!
     
     // 검색어 배열 선언
-    var searchResults: [String] = ["heizeheize", "silver_rain.__", "eungoo_kwon", "bambi__jeju"]
+
+    var searchResults: [String] = []
+    let userNames = users.map {$0.username}
     
     // 이미지 배열 선언
-    var images: [UIImage] = [
-        UIImage(named: "search1")!,
-        UIImage(named: "search2")!,
-        UIImage(named: "search3")!,
-        UIImage(named: "search4")!,
-        UIImage(named: "search5")!,
-        UIImage(named: "search6")!
-    ]
+    
+    let images = posts.map {$0.thumbnailImage}
 
     
     override func viewDidLoad() {
@@ -115,27 +111,36 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         print("검색창이 눌렸습니다.")
         searchBar.showsCancelButton = true
-        
-        
+
         myTableView.isHidden = false
         myCollectionView.isHidden = true
         myTableView.reloadData()
     }
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchResults = performSearch(with: searchText)
+        print(searchText)
         myTableView.reloadData()  // tableView를 새로고침
+        myCollectionView.isHidden = true
+        myTableView.isHidden = false
         }
-    
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         searchBar.text = ""
-        
+
         myTableView.isHidden = true
         myCollectionView.isHidden = false
+    }
+    
+    func performSearch(with searchText: String) -> [String] {
+        // 더미 데이터를 검색어로 필터링하여 반환
+        return userNames.filter { $0.lowercased().contains(searchText.lowercased()) }
     }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
     }
@@ -145,6 +150,4 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = searchResults[indexPath.row]
         return cell
     }
-    
-    
 }
