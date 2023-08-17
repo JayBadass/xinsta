@@ -18,7 +18,6 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var postText: UILabel!
     @IBOutlet weak var postUserName: UILabel!
     @IBOutlet weak var likeCounts: UILabel!
-    @IBOutlet weak var location: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
