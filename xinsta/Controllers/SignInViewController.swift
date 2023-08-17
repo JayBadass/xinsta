@@ -90,7 +90,15 @@ class SignInViewController: UIViewController {
             } else {
                 myInfo = existingUser
                 print("로그인 성공: \(myInfo!)")
-                // TODO: 탭바 컨트롤러 메인페이지로 이동
+                if let mainTabBarController = UIStoryboard(name: "MainPage", bundle: nil).instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {
+                        mainTabBarController.selectedIndex = 0
+                        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                           let delegate = windowScene.delegate as? SceneDelegate,
+                           let window = delegate.window {
+                            window.rootViewController = mainTabBarController
+                            window.makeKeyAndVisible()
+                        }
+                    }
             }
         } else {
             print("존재하지 않는 아이디입니다.")

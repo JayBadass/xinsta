@@ -180,7 +180,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="ctd-8K-OCt">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="aeK-rP-cWp" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aeK-rP-cWp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qV1-Xa-S3Q">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
