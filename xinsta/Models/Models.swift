@@ -9,19 +9,19 @@ import Foundation
 import UIKit
 
 struct User {
-    let username: String
-    let bio: String
-    let name: (first: String, last: String)
-    let profilePhoto: URL
-    let counts: UserCount
-    let joinDate: Date
-    let password: String
+    var username: String
+    var bio: String = ""
+    var name: (first: String, last: String) = ("","")
+    var profilePhoto: UIImage = UIImage(systemName: "person.circle.fill")!
+    var counts: UserCount = UserCount(followers: 0, following: 0, posts: 0)
+    var joinDate: Date = Date()
+    var password: String
 }
 
 struct UserCount {
-    let followers: Int
-    let following: Int
-    let posts: Int
+    var followers: Int
+    var following: Int
+    var posts: Int
 }
 
 public enum UserPostType: String {
@@ -69,7 +69,7 @@ func createDummyData() {
         let user = User(username: "user\(i)",
                         bio: "User \(i) bio",
                         name: (first: "First\(i)", last: "Last\(i)"),
-                        profilePhoto: URL(string: "https://example.com/user\(i).jpg")!,
+                        profilePhoto: UIImage(systemName: "person.circle.fill")!,
                         counts: UserCount(followers: i*100, following: i*50, posts: i*10),
                         joinDate: Date(), password: "user\(i)")
         users.append(user)
