@@ -62,6 +62,7 @@ struct PostComment {
 
 var users: [User] = []
 var posts: [UserPost] = []
+var myInfo: User?
 
 func createDummyData() {
     // User Dummy Data
