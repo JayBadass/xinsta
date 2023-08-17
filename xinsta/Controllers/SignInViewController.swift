@@ -43,7 +43,6 @@ class SignInViewController: UIViewController {
         let attributedTitle = NSMutableAttributedString(string: "Don't have an account?  ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.systemBlue]))
         dontHaveAccountButton.setAttributedTitle(attributedTitle, for: .normal)
-        dontHaveAccountButton.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
     }
     
     private func resetInputFields() {
@@ -71,11 +70,6 @@ class SignInViewController: UIViewController {
             signInButton.isEnabled = false
             signInButton.backgroundColor = .lightGray
         }
-    }
-    
-    // FIXME: SignUpPage 연결하기
-    @objc private func handleShowSignUp() {
-        //navigationController?.pushViewController(SignUpViewController(), animated: true)
     }
     
     // FIXME: 경고문 화면에 출력하기

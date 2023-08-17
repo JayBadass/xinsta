@@ -48,6 +48,9 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Don't have an account? Sign Up"/>
+                                <connections>
+                                    <segue destination="nEj-bB-eTO" kind="presentation" modalTransitionStyle="flipHorizontal" id="ydw-hG-FbF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWc-kq-T8I">
                                 <rect key="frame" x="298" y="372.66666666666669" width="20" height="15"/>
@@ -96,6 +99,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+        </scene>
+        <!--SignUpPage-->
+        <scene sceneID="6gb-lK-JN5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUpPage" referencedIdentifier="SignUpPage" id="nEj-bB-eTO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ov2-V6-a1H"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="204-9m-ciR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="746" y="-18"/>
         </scene>
     </scenes>
     <resources>
