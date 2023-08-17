@@ -19,6 +19,9 @@
 		69925E8C2A89F1F900EC6D7C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69925E8B2A89F1F900EC6D7C /* Models.swift */; };
 		69925E8E2A8A163400EC6D7C /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69925E8D2A8A163400EC6D7C /* MainTableViewCell.swift */; };
 		69D997EA2A8DD7DD0031B92C /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D997E92A8DD7DD0031B92C /* DetailPageViewController.swift */; };
+		7EFD204A2A8E366C00E9FC61 /* NotificationPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EFD20492A8E366C00E9FC61 /* NotificationPage.storyboard */; };
+		7EFD204C2A8E368400E9FC61 /* NotificationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFD204B2A8E368400E9FC61 /* NotificationPageViewController.swift */; };
+
 		D22BF9DD2A8AA28300CB22FF /* ProfilePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22BF9DC2A8AA28300CB22FF /* ProfilePage.storyboard */; };
 		D2AA11E42A8ACF76005431E1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA11E32A8ACF76005431E1 /* Extensions.swift */; };
 		D2AA11E62A8ACFE1005431E1 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA11E52A8ACFE1005431E1 /* ProfilePageViewController.swift */; };
@@ -44,6 +47,9 @@
 		69925E8B2A89F1F900EC6D7C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		69925E8D2A8A163400EC6D7C /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		69D997E92A8DD7DD0031B92C /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
+		7EFD20492A8E366C00E9FC61 /* NotificationPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationPage.storyboard; sourceTree = "<group>"; };
+		7EFD204B2A8E368400E9FC61 /* NotificationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPageViewController.swift; sourceTree = "<group>"; };
+
 		D22BF9DC2A8AA28300CB22FF /* ProfilePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfilePage.storyboard; sourceTree = "<group>"; };
 		D2AA11E32A8ACF76005431E1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D2AA11E52A8ACFE1005431E1 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +113,12 @@
 				69925E8D2A8A163400EC6D7C /* MainTableViewCell.swift */,
 				D2BD05952A8DB4600087BDFB /* SignUpViewController.swift */,
 				D2BD059C2A8DE8960087BDFB /* SignInViewController.swift */,
+
+				69925E8D2A8A163400EC6D7C /* MainTableViewCell.swift */,
+				D2BD05952A8DB4600087BDFB /* SignUpViewController.swift */,
+				D2BD059C2A8DE8960087BDFB /* SignInViewController.swift */,
+				7EFD204B2A8E368400E9FC61 /* NotificationPageViewController.swift */,
+
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -119,6 +131,9 @@
 				D2BD05932A8DAF2C0087BDFB /* SignUpPage.storyboard */,
 				D2BD059A2A8DE3A70087BDFB /* SignInPage.storyboard */,
 				3B96D1A52A8E372E00583407 /* SearchPage.storyboard */,
+
+				7EFD20492A8E366C00E9FC61 /* NotificationPage.storyboard */,
+
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +220,7 @@
 				69925E7E2A89E56400EC6D7C /* LaunchScreen.storyboard in Resources */,
 				69925E7B2A89E56400EC6D7C /* Assets.xcassets in Resources */,
 				D22BF9DD2A8AA28300CB22FF /* ProfilePage.storyboard in Resources */,
+				7EFD204A2A8E366C00E9FC61 /* NotificationPage.storyboard in Resources */,
 				69925E792A89E56200EC6D7C /* MainPage.storyboard in Resources */,
 				3B96D1A62A8E372E00583407 /* SearchPage.storyboard in Resources */,
 			);
@@ -223,11 +239,13 @@
 				69925E762A89E56200EC6D7C /* MainPageViewController.swift in Sources */,
 				69925E722A89E56200EC6D7C /* AppDelegate.swift in Sources */,
 				69D997EA2A8DD7DD0031B92C /* DetailPageViewController.swift in Sources */,
+
 				3B96D1A42A8E36F900583407 /* SearchViewController.swift in Sources */,
 				69925E8E2A8A163400EC6D7C /* MainTableViewCell.swift in Sources */,
 				D2BD05962A8DB4600087BDFB /* SignUpViewController.swift in Sources */,
 				69925E742A89E56200EC6D7C /* SceneDelegate.swift in Sources */,
 				D2BD059D2A8DE8960087BDFB /* SignInViewController.swift in Sources */,
+				7EFD204C2A8E368400E9FC61 /* NotificationPageViewController.swift in Sources */,
 				69925E8C2A89F1F900EC6D7C /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
