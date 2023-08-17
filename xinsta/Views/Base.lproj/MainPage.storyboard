@@ -50,26 +50,6 @@
                                                         <constraint firstAttribute="width" constant="40" id="utr-jQ-wAw"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="fQR-Fb-Olq">
-                                                    <rect key="frame" x="20" y="416" width="25" height="30"/>
-                                                    <accessibility key="accessibilityConfiguration">
-                                                        <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                                    </accessibility>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="G06-6u-Mos"/>
-                                                        <constraint firstAttribute="width" constant="25" id="UjA-fd-zLo"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment" translatesAutoresizingMaskIntoConstraints="NO" id="Vev-Zd-cXR">
-                                                    <rect key="frame" x="60" y="416" width="25" height="30"/>
-                                                    <accessibility key="accessibilityConfiguration">
-                                                        <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                                    </accessibility>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="XtE-wK-98t"/>
-                                                        <constraint firstAttribute="height" constant="30" id="xDn-Tm-YLp"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ganadara" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owq-a9-gWb">
                                                     <rect key="frame" x="95" y="484" width="200" height="18"/>
                                                     <constraints>
@@ -116,25 +96,43 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afa-Ng-TRR">
+                                                    <rect key="frame" x="15" y="411" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="9XD-9k-u9V"/>
+                                                        <constraint firstAttribute="height" constant="40" id="rHg-04-9vb"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="heart"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWf-0h-edF">
+                                                    <rect key="frame" x="55" y="411" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="aD9-Qj-goG"/>
+                                                        <constraint firstAttribute="width" constant="40" id="j9q-c5-k70"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="comment"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="FGN-vI-RHN" firstAttribute="top" secondItem="owq-a9-gWb" secondAttribute="bottom" constant="10" id="4LP-Pb-Kna"/>
                                                 <constraint firstItem="HNm-I4-zhm" firstAttribute="leading" secondItem="D5m-Sb-BRF" secondAttribute="leading" constant="20" id="54v-eX-89F"/>
+                                                <constraint firstItem="GWf-0h-edF" firstAttribute="top" secondItem="WkM-n9-k9W" secondAttribute="bottom" constant="15" id="DQT-Q3-EhE"/>
+                                                <constraint firstItem="afa-Ng-TRR" firstAttribute="leading" secondItem="D5m-Sb-BRF" secondAttribute="leading" constant="15" id="DRG-fA-KFM"/>
                                                 <constraint firstItem="kKz-dV-ag3" firstAttribute="top" secondItem="436-Kz-FLR" secondAttribute="bottom" constant="10" id="G5H-L4-JGc"/>
                                                 <constraint firstItem="owq-a9-gWb" firstAttribute="top" secondItem="436-Kz-FLR" secondAttribute="bottom" constant="10" id="L78-MV-rCa"/>
+                                                <constraint firstItem="afa-Ng-TRR" firstAttribute="top" secondItem="WkM-n9-k9W" secondAttribute="bottom" constant="15" id="NDD-ky-ilx"/>
                                                 <constraint firstItem="WoV-Vy-eHD" firstAttribute="centerY" secondItem="HNm-I4-zhm" secondAttribute="centerY" id="Q2X-27-RpF"/>
                                                 <constraint firstItem="HNm-I4-zhm" firstAttribute="top" secondItem="D5m-Sb-BRF" secondAttribute="top" constant="20" symbolic="YES" id="RLB-b6-yLg"/>
-                                                <constraint firstItem="fQR-Fb-Olq" firstAttribute="top" secondItem="WkM-n9-k9W" secondAttribute="bottom" constant="20" id="SJm-A9-K4m"/>
+                                                <constraint firstItem="GWf-0h-edF" firstAttribute="leading" secondItem="afa-Ng-TRR" secondAttribute="trailing" id="RNf-EX-3OE"/>
                                                 <constraint firstItem="HNm-I4-zhm" firstAttribute="top" secondItem="D5m-Sb-BRF" secondAttribute="top" constant="20" id="TFu-l1-DV8"/>
                                                 <constraint firstItem="WkM-n9-k9W" firstAttribute="top" secondItem="HNm-I4-zhm" secondAttribute="bottom" constant="20" id="VNu-uD-Bh2"/>
                                                 <constraint firstItem="WoV-Vy-eHD" firstAttribute="leading" secondItem="HNm-I4-zhm" secondAttribute="trailing" constant="15" id="VvI-Jp-3Yk"/>
                                                 <constraint firstItem="436-Kz-FLR" firstAttribute="leading" secondItem="D5m-Sb-BRF" secondAttribute="leading" constant="20" id="X2T-ZM-aaJ"/>
                                                 <constraint firstItem="FGN-vI-RHN" firstAttribute="leading" secondItem="kKz-dV-ag3" secondAttribute="leading" id="Y8N-g6-p5H"/>
                                                 <constraint firstItem="owq-a9-gWb" firstAttribute="leading" secondItem="kKz-dV-ag3" secondAttribute="trailing" constant="5" id="dJ0-m3-FyE"/>
-                                                <constraint firstItem="436-Kz-FLR" firstAttribute="top" secondItem="fQR-Fb-Olq" secondAttribute="bottom" constant="10" id="oNa-mo-VjI"/>
-                                                <constraint firstItem="Vev-Zd-cXR" firstAttribute="leading" secondItem="fQR-Fb-Olq" secondAttribute="trailing" constant="15" id="rdj-d1-qj5"/>
-                                                <constraint firstItem="fQR-Fb-Olq" firstAttribute="leading" secondItem="D5m-Sb-BRF" secondAttribute="leading" constant="20" id="tEd-kw-RWY"/>
-                                                <constraint firstItem="Vev-Zd-cXR" firstAttribute="top" secondItem="WkM-n9-k9W" secondAttribute="bottom" constant="20" id="uqM-9i-mRJ"/>
+                                                <constraint firstItem="436-Kz-FLR" firstAttribute="top" secondItem="afa-Ng-TRR" secondAttribute="bottom" constant="5" id="sh8-DU-eC2"/>
                                                 <constraint firstItem="FGN-vI-RHN" firstAttribute="leading" secondItem="436-Kz-FLR" secondAttribute="leading" id="xuQ-sb-51D"/>
                                                 <constraint firstItem="FGN-vI-RHN" firstAttribute="top" secondItem="owq-a9-gWb" secondAttribute="bottom" constant="10" id="yMO-qc-pHh"/>
                                             </constraints>
@@ -143,8 +141,8 @@
                                             <bool key="isElement" value="YES"/>
                                         </accessibility>
                                         <connections>
-                                            <outlet property="commentButton" destination="Vev-Zd-cXR" id="UMi-lP-YUD"/>
-                                            <outlet property="likeButton" destination="fQR-Fb-Olq" id="sEe-0n-LYX"/>
+                                            <outlet property="commentButton" destination="GWf-0h-edF" id="ULc-4L-Dps"/>
+                                            <outlet property="likeButton" destination="afa-Ng-TRR" id="gjD-3q-fzc"/>
                                             <outlet property="likeCounts" destination="436-Kz-FLR" id="N1w-RU-Ra8"/>
                                             <outlet property="postDate" destination="FGN-vI-RHN" id="7Q0-e9-wVT"/>
                                             <outlet property="postImage" destination="WkM-n9-k9W" id="NBO-M1-seq"/>
@@ -208,7 +206,7 @@
         <image name="X" width="512" height="512"/>
         <image name="XwithBG" width="2477.5" height="1813"/>
         <image name="comment" width="22" height="22.5"/>
-        <image name="heart" width="24" height="21"/>
+        <image name="heart" width="23" height="23"/>
         <image name="home" width="22" height="24"/>
         <image name="home_empty" width="22" height="24"/>
         <systemColor name="systemBackgroundColor">

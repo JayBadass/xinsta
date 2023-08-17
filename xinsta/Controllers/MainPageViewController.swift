@@ -30,6 +30,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) as! MainTableViewCell
         
+        let post = posts[indexPath.row]
+        let currentUser = "currentUser" //  추후 실 사용자로 변경 필요
+        if post.likeCount.contains(where: { $0.username == currentUser }) {
+            // 이미 좋아요한 상태
+            cell.likeButton.setImage(UIImage(named: "heart_filled"), for: .normal)
+        } else {
+            // 좋아요하지 않은 상태
+            cell.likeButton.setImage(UIImage(named: "heart"), for: .normal)
+        }
+        
         cell.userName.text = posts[indexPath.row].owner.username
         cell.postImage.image = posts[indexPath.row].thumbnailImage
         let postLikes = posts[indexPath.row].likeCount
@@ -38,6 +48,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else {
             cell.likeCounts.text = ""
         }
+        cell.likeButton.addTarget(self, action: #selector(didTapLike(_:)), for: .touchUpInside)
+        cell.likeButton.tag = indexPath.row  // 현재 indexPath.row를 태그로 사용하여 어떤 게시물의 좋아요 버튼이 눌렸는지 판별
         cell.postUserName.text = posts[indexPath.row].owner.username
         cell.postText.text = posts[indexPath.row].caption
         let dateFormatter = DateFormatter()
@@ -48,6 +60,24 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    
+    @objc func didTapLike(_ sender: UIButton) {
+        let postIndex = sender.tag
+        var post = posts[postIndex]
+        
+        let currentUser = "currentUser"
+        if let index = post.likeCount.firstIndex(where: { $0.username == currentUser }) {
+            // 이미 좋아요한 상태이므로, 좋아요 취소
+            post.likeCount.remove(at: index)
+            sender.setImage(UIImage(named: "heart_filled"), for: .normal)
+        } else {
+            // 좋아요 추가
+            let like = PostLike(username: currentUser, postIdentifier: "post\(postIndex + 1)")
+            post.likeCount.append(like)
+            sender.setImage(UIImage(named: "heart"), for: .normal)
+        }
+        
+        posts[postIndex] = post
+        tableView.reloadRows(at: [IndexPath(row: postIndex, section: 0)], with: .none)
+    }
 }
 
