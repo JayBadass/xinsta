@@ -332,7 +332,7 @@
                                 <sections/>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="댓글 달기.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j28-ZD-6Kg">
-                                <rect key="frame" x="20" y="724.66666666666663" width="357" height="34"/>
+                                <rect key="frame" x="20" y="724.66666666666663" width="289.33333333333331" height="34"/>
                                 <color key="textColor" red="0.51480347940000004" green="0.51156572160000002" blue="0.51804123710000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -344,15 +344,24 @@
                                     <constraint firstAttribute="width" constant="40" id="ZCf-Yo-3Ra"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meZ-OE-uXC">
+                                <rect key="frame" x="319.33333333333331" y="724.66666666666663" width="53.666666666666686" height="35"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="추가"/>
+                                <connections>
+                                    <action selector="addCommentButtonTapped:" destination="O8Q-0B-5t8" eventType="touchUpInside" id="y2Y-Th-MLo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6LY-vS-v5t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="N4R-yW-YWV" firstAttribute="leading" secondItem="HUW-Oh-URL" secondAttribute="trailing" constant="15" id="0Nu-bZ-f6e"/>
+                            <constraint firstItem="6LY-vS-v5t" firstAttribute="trailing" secondItem="meZ-OE-uXC" secondAttribute="trailing" constant="20" id="5EH-yB-Bwa"/>
                             <constraint firstItem="ozQ-7v-akJ" firstAttribute="leading" secondItem="6LY-vS-v5t" secondAttribute="leading" constant="20" id="5NX-9G-Jer"/>
                             <constraint firstItem="6Vx-gr-uLY" firstAttribute="centerX" secondItem="Vm9-iH-3oh" secondAttribute="centerX" id="5Yf-a2-Yw9"/>
                             <constraint firstItem="fIi-SE-ntm" firstAttribute="centerX" secondItem="Vm9-iH-3oh" secondAttribute="centerX" id="C49-5y-6zL"/>
-                            <constraint firstItem="j28-ZD-6Kg" firstAttribute="trailing" secondItem="Vm9-iH-3oh" secondAttribute="trailingMargin" id="Egu-Yf-1Cu"/>
                             <constraint firstItem="6LY-vS-v5t" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N4R-yW-YWV" secondAttribute="trailing" symbolic="YES" id="IeL-Hh-Fpt"/>
                             <constraint firstItem="Eyd-SU-kBQ" firstAttribute="top" secondItem="gVv-XL-upt" secondAttribute="bottom" constant="10" id="JPL-x1-nM8"/>
                             <constraint firstItem="j28-ZD-6Kg" firstAttribute="top" secondItem="6Vx-gr-uLY" secondAttribute="bottom" constant="5" id="JlR-1z-F4Z"/>
@@ -366,7 +375,9 @@
                             <constraint firstItem="gVv-XL-upt" firstAttribute="leading" secondItem="5Ew-hp-iTE" secondAttribute="trailing" constant="5" id="Veg-g4-Xfo"/>
                             <constraint firstItem="6LY-vS-v5t" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ozQ-7v-akJ" secondAttribute="trailing" symbolic="YES" id="WB0-yc-res"/>
                             <constraint firstItem="6LY-vS-v5t" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Eyd-SU-kBQ" secondAttribute="trailing" symbolic="YES" id="WWu-ws-eKa"/>
+                            <constraint firstItem="meZ-OE-uXC" firstAttribute="leading" secondItem="j28-ZD-6Kg" secondAttribute="trailing" constant="10" id="Xgl-tI-0Fd"/>
                             <constraint firstItem="HUW-Oh-URL" firstAttribute="top" secondItem="fIi-SE-ntm" secondAttribute="bottom" constant="10" id="a6L-MR-yvs"/>
+                            <constraint firstItem="meZ-OE-uXC" firstAttribute="top" secondItem="6Vx-gr-uLY" secondAttribute="bottom" constant="5" id="bKI-gI-iaZ"/>
                             <constraint firstItem="6LY-vS-v5t" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DK4-Uk-DKP" secondAttribute="trailing" symbolic="YES" id="cCm-IX-Zd9"/>
                             <constraint firstItem="fIi-SE-ntm" firstAttribute="leading" secondItem="6LY-vS-v5t" secondAttribute="leading" id="cZl-Te-9bQ"/>
                             <constraint firstItem="6LY-vS-v5t" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gVv-XL-upt" secondAttribute="trailing" symbolic="YES" id="dS3-aH-Cjf"/>
