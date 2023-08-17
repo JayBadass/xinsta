@@ -37,7 +37,7 @@ public struct UserPost {
     let postURL: URL // either video URL or full resolution photo
     let caption: String?
     var likeCount: [PostLike]
-    let comments: [PostComment]
+    var comments: [PostComment]
     let createdDate: Date
     let owner: User
 }
@@ -47,17 +47,9 @@ struct PostLike {
     let postIdentifier: String
 }
 
-struct CommentLike {
-    let username: String
-    let commentIdentifier: String
-}
-
 struct PostComment {
-    let identifier: String
     let username: String
     let text: String
-    let createdDate: Date
-    let likes: [CommentLike]
 }
 
 var users: [User] = []
@@ -86,11 +78,11 @@ func createDummyData() {
                             postURL: i % 2 == 0 ? URL(string: "https://example.com/post\(i).jpg")! : URL(string: "https://example.com/post\(i)_video.mp4")!,
                             caption: "Caption for post \(i)",
                             likeCount: (1...5).map { PostLike(username: "user\($0)", postIdentifier: "post\(postUser.username)_\(i)") },
-                            comments: (1...5).map { PostComment(identifier: "comment\(postUser.username)_\(i)_\($0)",
-                                                                username: "user\($0)",
-                                                                text: "Comment \($0) for post \(postUser.username)_\(i)",
-                                                                createdDate: Date(),
-                                                                likes: [CommentLike(username: "user\($0)", commentIdentifier: "comment\(postUser.username)_\(i)_\($0)")]) },
+                            comments: (1...5).map { PostComment(
+                                username: "user\($0)",
+                                text: "Comment \($0) for post \(postUser.username)_\(i)"
+                            )},
+                            
                             createdDate: Date(),
                             owner: postUser)
         posts.append(post)

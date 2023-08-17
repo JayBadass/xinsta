@@ -22,6 +22,20 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var userName: UILabel!
     
+    @IBAction func addCommentButtonTapped(_ sender: UIButton) {
+        guard let commentText = commentTextField.text, !commentText.isEmpty else {
+            return
+        }
+        
+        let currentUser = "currentUser" // 추후 실 사용자로 변경 필요
+        
+        let newComment = PostComment(username: currentUser, text: commentText)
+        posts[selectedPostIndex].comments.append(newComment)
+        
+        commentTextField.text = ""
+        tableView.reloadData()
+    }
+    
     weak var delegate: DetailPageViewControllerDelegate?
     var selectedPostIndex: Int!
     
