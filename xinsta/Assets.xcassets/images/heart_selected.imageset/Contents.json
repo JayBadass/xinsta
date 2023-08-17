@@ -5,12 +5,11 @@
       "scale" : "1x"
     },
     {
-      "filename" : "다운로드 1.png",
+      "filename" : "heart_selected.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "다운로드.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

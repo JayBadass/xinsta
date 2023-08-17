@@ -186,10 +186,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="labelColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="tVs-cP-rkd"/>
-                        <segue destination="sQW-fO-GnK" kind="relationship" relationship="viewControllers" id="0la-Na-oVi"/>
+                        <segue destination="sP6-jy-ldT" kind="relationship" relationship="viewControllers" id="XQi-fN-XFk"/>
+                        <segue destination="gGx-EN-QhB" kind="relationship" relationship="viewControllers" id="SYu-ah-9T1"/>
+                        <segue destination="03l-Gq-bGD" kind="relationship" relationship="viewControllers" id="Rvl-zo-Qk9"/>
+                        <segue destination="sQW-fO-GnK" kind="relationship" relationship="viewControllers" id="hhf-C5-Anu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UN0-tC-9PB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -204,7 +208,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gUi-Ay-RyD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47" y="421"/>
+            <point key="canvasLocation" x="426" y="420"/>
         </scene>
         <!--Detail Page View Controller-->
         <scene sceneID="VL5-aa-G0f">
@@ -399,6 +403,36 @@
             </objects>
             <point key="canvasLocation" x="1759.5419847328244" y="3.5211267605633805"/>
         </scene>
+        <!--SearchPage-->
+        <scene sceneID="8J7-dh-VM6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchPage" id="sP6-jy-ldT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="8cu-cE-bkD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3wf-9Q-3FK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-278" y="420"/>
+        </scene>
+        <!--AddPostPage-->
+        <scene sceneID="M2B-w0-PRo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddPostPage" id="gGx-EN-QhB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="5bf-ck-wHC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BI8-z5-hy5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-81" y="420"/>
+        </scene>
+        <!--NotificationPage-->
+        <scene sceneID="d0z-BD-TTY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NotificationPage" id="03l-Gq-bGD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="W74-2p-tSk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZIE-Jq-Kh6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="158" y="420"/>
+        </scene>
     </scenes>
     <resources>
         <image name="X" width="512" height="512"/>
@@ -407,6 +441,9 @@
         <image name="heart" width="25" height="25"/>
         <image name="home" width="22" height="24"/>
         <image name="home_empty" width="22" height="24"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
