@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var searchController: UISearchBar!
@@ -30,6 +31,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         //searchController 딜리게이트 선언
         searchController.delegate = self
         searchController.placeholder = "검색"
