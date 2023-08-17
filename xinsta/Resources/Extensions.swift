@@ -52,3 +52,11 @@ extension UIButton {
     }
     
 }
+
+extension String {
+    var isValidCredential: Bool {
+            let regex = "^(?=.*[a-zA-Z])(?=.*\\d).{5,}$"
+            return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: self)
+        }
+}
+

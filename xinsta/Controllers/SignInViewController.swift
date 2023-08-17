@@ -8,7 +8,7 @@
 import UIKit
 
 class SignInViewController: UIViewController {
-
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
@@ -20,7 +20,7 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapOnView)))
-
+        
         setupUI()
     }
     
@@ -85,23 +85,23 @@ class SignInViewController: UIViewController {
         
         if let existingUser = getUserByUsername(username) {
             if existingUser.password != password {
-                print("비밀번호가 일치하지 않습니다.")
+                showErrorAlert(title: "로그인 실패", message: "비밀번호가 일치하지 않습니다.")
                 resetInputFields()
             } else {
                 myInfo = existingUser
                 print("로그인 성공: \(myInfo!)")
                 if let mainTabBarController = UIStoryboard(name: "MainPage", bundle: nil).instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {
-                        mainTabBarController.selectedIndex = 0
-                        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                           let delegate = windowScene.delegate as? SceneDelegate,
-                           let window = delegate.window {
-                            window.rootViewController = mainTabBarController
-                            window.makeKeyAndVisible()
-                        }
+                    mainTabBarController.selectedIndex = 0
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                       let delegate = windowScene.delegate as? SceneDelegate,
+                       let window = delegate.window {
+                        window.rootViewController = mainTabBarController
+                        window.makeKeyAndVisible()
                     }
+                }
             }
         } else {
-            print("존재하지 않는 아이디입니다.")
+            showErrorAlert(title: "로그인 실패", message: "존재하지 않는 아이디입니다.")
             resetInputFields()
         }
     }
@@ -120,6 +120,13 @@ class SignInViewController: UIViewController {
             sender.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         }
     }
+    
+    func showErrorAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     
 }
 

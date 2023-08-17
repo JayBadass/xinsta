@@ -9,19 +9,32 @@ import UIKit
 
 class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     
+    @IBOutlet weak var passwordValidationText: UILabel!
+    @IBOutlet weak var idValidationText: UILabel!
     @IBOutlet weak var plusPhotoButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var alreadyHaveAccountButton: UIButton!
-    
+    @IBAction func usernameEditingDidBegin(_ sender: UITextField) {
+        _ = validateUsername(sender.text)
+        handleTextInputChange(textField: sender)
+    }
+
+    @IBAction func passwordEditingDidBegin(_ sender: UITextField) {
+        _ = validateUsername(usernameTextField.text)
+        _ = validatePassword(sender.text)
+        handleTextInputChange(textField: sender)
+    }
+
+
     private var profileImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapOnView)))
-
+        
         setupUI()
     }
     
@@ -34,12 +47,12 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         usernameTextField.autocorrectionType = .no
         usernameTextField.autocapitalizationType = .none
         usernameTextField.delegate = self
-        usernameTextField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
+        usernameTextField.addTarget(self, action: #selector(handleTextInputChange(textField:)), for: .editingChanged)
         
         passwordTextField.isSecureTextEntry = true
         passwordTextField.textContentType = .oneTimeCode
         passwordTextField.delegate = self
-        passwordTextField.addTarget(self, action: #selector(handleTextInputChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(handleTextInputChange(textField:)), for: .editingChanged)
         
         signUpButton.layer.cornerRadius = 5
         signUpButton.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
@@ -75,16 +88,21 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    @objc private func handleTextInputChange() {
-        let isFormValid = usernameTextField.text?.isEmpty == false && passwordTextField.text?.isEmpty == false
-        if isFormValid {
-            signUpButton.isEnabled = true
-            signUpButton.backgroundColor = .systemBlue
-        } else {
-            signUpButton.isEnabled = false
-            signUpButton.backgroundColor = .lightGray
+    @objc private func handleTextInputChange(textField: UITextField) {
+        if textField == usernameTextField {
+            _ = validateUsername(textField.text)
+        } else if textField == passwordTextField {
+            _ = validatePassword(textField.text)
         }
+
+        let isUsernameValid = validateUsernameWithoutChangingUI(usernameTextField.text)
+        let isPasswordValid = validatePasswordWithoutChangingUI(passwordTextField.text)
+
+        let isFormValid = isUsernameValid && isPasswordValid
+        signUpButton.isEnabled = isFormValid
+        signUpButton.backgroundColor = isFormValid ? .systemBlue : .lightGray
     }
+
     
     @objc private func handleAlreadyHaveAccount() {
         self.dismiss(animated: true)
@@ -107,14 +125,14 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             users.append(newUser)
             print(users)
             if let mainTabBarController = UIStoryboard(name: "MainPage", bundle: nil).instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {
-                    mainTabBarController.selectedIndex = 0
-                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                       let delegate = windowScene.delegate as? SceneDelegate,
-                       let window = delegate.window {
-                        window.rootViewController = mainTabBarController
-                        window.makeKeyAndVisible()
-                    }
+                mainTabBarController.selectedIndex = 0
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let delegate = windowScene.delegate as? SceneDelegate,
+                   let window = delegate.window {
+                    window.rootViewController = mainTabBarController
+                    window.makeKeyAndVisible()
                 }
+            }
         }
     }
     
@@ -134,6 +152,56 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             sender.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         }
     }
+    
+    func validateUsername(_ username: String?) -> Bool {
+        guard let username = username else { return false }
+        usernameTextField.layer.borderWidth = 2.0
+        usernameTextField.layer.cornerRadius = 7.0
+        if username.isValidCredential {
+            idValidationText.text = ""
+            usernameTextField.layer.borderColor = UIColor(named: "green")?.cgColor
+            return true
+        } else {
+            idValidationText.text = "영문/숫자를 포함하여 5자 이상 작성하세요."
+            usernameTextField.layer.borderColor = UIColor(named: "red")?.cgColor
+            return false
+        }
+    }
+    
+    func validatePassword(_ password: String?) -> Bool {
+        guard let password = password else { return false }
+        passwordTextField.layer.borderWidth = 2.0
+        passwordTextField.layer.cornerRadius = 7.0
+        if password.isValidCredential {
+            passwordValidationText.text = ""
+            passwordTextField.layer.borderColor = UIColor(named: "green")?.cgColor
+            return true
+        } else {
+            passwordValidationText.text = "영문/숫자를 포함하여 5자 이상 작성하세요."
+            passwordTextField.layer.borderColor = UIColor(named: "red")?.cgColor
+            return false
+        }
+    }
+    
+    func validateUsernameWithoutChangingUI(_ username: String?) -> Bool {
+        guard let username = username else { return false }
+        if username.isValidCredential {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    func validatePasswordWithoutChangingUI(_ password: String?) -> Bool {
+        guard let password = password else { return false }
+        if password.isValidCredential {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    
     
 }
 
