@@ -24,7 +24,13 @@ extension UIImageView {
             return false
         }
     }
-    
+}
+
+extension MainViewController: DetailPageViewControllerDelegate {
+    func didUpdatePost(at index: Int, post: UserPost) {
+        posts[index] = post
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+    }
 }
 
 extension UIButton {

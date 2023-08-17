@@ -36,7 +36,7 @@ public struct UserPost {
     let thumbnailImage: UIImage?
     let postURL: URL // either video URL or full resolution photo
     let caption: String?
-    let likeCount: [PostLike]
+    var likeCount: [PostLike]
     let comments: [PostComment]
     let createdDate: Date
     let owner: User
