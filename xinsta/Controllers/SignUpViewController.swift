@@ -87,7 +87,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @objc private func handleAlreadyHaveAccount() {
-        _ = navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
     
     @objc private func handleSignUp() {
