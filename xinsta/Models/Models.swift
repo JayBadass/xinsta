@@ -32,7 +32,7 @@ public enum UserPostType: String {
 public struct UserPost {
     let identifier: String
     let postType: UserPostType
-//    let thumbnailImage: URL
+    //    let thumbnailImage: URL
     let thumbnailImage: UIImage?
     let postURL: URL // either video URL or full resolution photo
     let caption: String?
@@ -74,22 +74,22 @@ func createDummyData() {
                         joinDate: Date(), password: "user\(i)")
         users.append(user)
     }
-
+    
     // User Post Dummy Data
     for i in 1...100 {
         let postUser = users[i % 5]
         let post = UserPost(identifier: "post\(i)",
                             postType: i % 2 == 0 ? .photo : .video,
-//                            thumbnailImage: URL(string: "https://example.com/post\(i)_thumb.jpg")!,
+                            //thumbnailImage: URL(string: "https://example.com/post\(i)_thumb.jpg")!,
                             thumbnailImage: UIImage(named: "panda"),
                             postURL: i % 2 == 0 ? URL(string: "https://example.com/post\(i).jpg")! : URL(string: "https://example.com/post\(i)_video.mp4")!,
                             caption: "Caption for post \(i)",
-                            likeCount: [PostLike(username: postUser.username, postIdentifier: "post\(i)")],
-                            comments: [PostComment(identifier: "comment\(i)",
-                                                   username: postUser.username,
-                                                   text: "Comment for post \(i)",
-                                                   createdDate: Date(),
-                                                   likes: [CommentLike(username: postUser.username, commentIdentifier: "comment\(i)")])],
+                            likeCount: (1...5).map { PostLike(username: "user\($0)", postIdentifier: "post\(postUser.username)_\(i)") },
+                            comments: (1...5).map { PostComment(identifier: "comment\(postUser.username)_\(i)_\($0)",
+                                                                username: "user\($0)",
+                                                                text: "Comment \($0) for post \(postUser.username)_\(i)",
+                                                                createdDate: Date(),
+                                                                likes: [CommentLike(username: "user\($0)", commentIdentifier: "comment\(postUser.username)_\(i)_\($0)")]) },
                             createdDate: Date(),
                             owner: postUser)
         posts.append(post)
