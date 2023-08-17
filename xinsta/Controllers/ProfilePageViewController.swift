@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfilePageViewController: UIViewController {
-
+    
     @IBOutlet weak var profilePageNavigationItem: UINavigationItem!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var postsLabel: UILabel!
@@ -22,7 +22,7 @@ class ProfilePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
     }
     
@@ -33,5 +33,5 @@ class ProfilePageViewController: UIViewController {
         editProfileButton.layer.borderWidth = 0.5
         editProfileButton.layer.borderColor = UIColor.lightGray.cgColor
     }
-
+    
 }
