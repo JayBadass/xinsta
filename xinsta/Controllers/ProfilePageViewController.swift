@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfilePageViewController: UIViewController {
+class ProfilePageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var profilePageNavigationItem: UINavigationItem!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -22,6 +22,7 @@ class ProfilePageViewController: UIViewController {
     @IBOutlet weak var moreButton: UIBarButtonItem!
     
     var isExpanded = false
+    let images = posts.filter {$0.owner.username == myInfo?.username}.map {$0.thumbnailImage}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,11 @@ class ProfilePageViewController: UIViewController {
         bioLabel.text = myProfile.bio
 
         updateLabelLayout(bioLabel)
+        
+        postsCollectionView.dataSource = self
+        postsCollectionView.delegate = self
+        let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
+        postsCollectionView.register(nib, forCellWithReuseIdentifier: "CollectionViewCell")
     }
     
     // FIXME: 더보기/접기 글씨 없음, label 전체 터치됨
@@ -73,6 +79,48 @@ class ProfilePageViewController: UIViewController {
             heightConstraint.isActive = true
         }
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        cell.collectionViewCell.image = images[indexPath.row]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.width
+        let cellItemForRow: CGFloat = 3
+        let minimumSpacing: CGFloat = 2
+        let width = (collectionViewWidth - (cellItemForRow - 1) * minimumSpacing) / cellItemForRow
+                
+        return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1  // 세로 간격
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1  // 가로 간격
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)  // 여백 설정
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "profileSegue",
+//           let detailVC = segue.destination as? DetailPageViewController,
+//           let selectedIndexPaths = postsCollectionView.indexPathsForSelectedItems,
+//           let selectedIndexPath = selectedIndexPaths.first {
+//            detailVC.selectedPostIndex = selectedIndexPath.item
+//            //detailVC.delegate = self
+//        }
+//    }
     
     @objc func biolabelTapped(sender: UITapGestureRecognizer) {
         if isExpanded {
