@@ -9,6 +9,7 @@ import UIKit
 
 class SearchDetailViewController: UIViewController {
     
+    
     @IBOutlet weak var detailTableView: UITableView!
     @IBOutlet weak var detatilProfileImage: UIImageView!
     @IBOutlet weak var detailView: UIImageView!
@@ -27,15 +28,14 @@ class SearchDetailViewController: UIViewController {
         
         
         
-    var image: UIImage? // 새로운 UIImage 타입의 프로퍼티 추가
+       // var image: UIImage? // 새로운 UIImage 타입의 프로퍼티 추가
+        
         
         override func viewDidLoad() {
             super.viewDidLoad()
             
             // Do any additional setup after loading the view.
             // 이미지 데이터를 UIImageView에 설정
-            detailView.image = image
+            //etailView.image = image
         }
-        
     }
- 

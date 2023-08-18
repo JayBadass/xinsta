@@ -13,7 +13,6 @@
 		3B96D1AC2A8E585B00583407 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96D1AB2A8E585B00583407 /* CollectionViewCell.swift */; };
 		3B96D1AE2A8E606D00583407 /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B96D1AD2A8E606D00583407 /* ResultCell.xib */; };
 		3B96D1B02A8E616900583407 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96D1AF2A8E616800583407 /* SearchResultTableViewCell.swift */; };
-		3B96D1B22A8F086300583407 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96D1B12A8F086300583407 /* SearchDetailViewController.swift */; };
 		69925E722A89E56200EC6D7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69925E712A89E56200EC6D7C /* AppDelegate.swift */; };
 		69925E742A89E56200EC6D7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69925E732A89E56200EC6D7C /* SceneDelegate.swift */; };
 		69925E762A89E56200EC6D7C /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69925E752A89E56200EC6D7C /* MainPageViewController.swift */; };
@@ -46,7 +45,6 @@
 		3B96D1AB2A8E585B00583407 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		3B96D1AD2A8E606D00583407 /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 		3B96D1AF2A8E616800583407 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
-		3B96D1B12A8F086300583407 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		69925E6E2A89E56200EC6D7C /* xinsta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xinsta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69925E712A89E56200EC6D7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69925E732A89E56200EC6D7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 				D2AA11E72A8AD033005431E1 /* EditProfilePageViewController.swift */,
 				3B96D1A32A8E36F900583407 /* SearchViewController.swift */,
 				3B96D1AF2A8E616800583407 /* SearchResultTableViewCell.swift */,
-				3B96D1B12A8F086300583407 /* SearchDetailViewController.swift */,
 				3B96D1AB2A8E585B00583407 /* CollectionViewCell.swift */,
 				69925E8D2A8A163400EC6D7C /* MainTableViewCell.swift */,
 				D2BD05952A8DB4600087BDFB /* SignUpViewController.swift */,
@@ -253,7 +250,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2AA11E42A8ACF76005431E1 /* Extensions.swift in Sources */,
-				3B96D1B22A8F086300583407 /* SearchDetailViewController.swift in Sources */,
 				D2AA11E62A8ACFE1005431E1 /* ProfilePageViewController.swift in Sources */,
 				3B96D1B02A8E616900583407 /* SearchResultTableViewCell.swift in Sources */,
 				D2AA11E82A8AD033005431E1 /* EditProfilePageViewController.swift in Sources */,
