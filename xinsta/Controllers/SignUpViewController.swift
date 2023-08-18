@@ -123,6 +123,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
             self.resetInputFields()
         } else {
             users.append(newUser)
+            myInfo = newUser
             print(users)
             if let mainTabBarController = UIStoryboard(name: "MainPage", bundle: nil).instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {
                 mainTabBarController.selectedIndex = 0
