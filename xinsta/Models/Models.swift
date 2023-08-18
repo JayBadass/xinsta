@@ -31,14 +31,14 @@ public enum UserPostType: String {
 
 public struct UserPost {
     let identifier: String
-    let postType: UserPostType
+    //let postType: UserPostType
     //    let thumbnailImage: URL
     let thumbnailImage: UIImage?
-    let postURL: URL // either video URL or full resolution photo
-    let caption: String?
-    var likeCount: [PostLike]
-    var comments: [PostComment]
-    let createdDate: Date
+    //let postURL: URL // either video URL or full resolution photo
+    let caption: String
+    var likeCount: [PostLike] = []
+    var comments: [PostComment] = []
+    let createdDate: Date = Date()
     let owner: User
 }
 
@@ -53,6 +53,7 @@ struct PostComment {
 }
 
 var users: [User] = []
+// FIXME: createdDate로 정렬
 var posts: [UserPost] = []
 var myInfo: User?
 
@@ -72,18 +73,16 @@ func createDummyData() {
     for i in 1...100 {
         let postUser = users[i % 5]
         let post = UserPost(identifier: "post\(i)",
-                            postType: i % 2 == 0 ? .photo : .video,
+                            //postType: i % 2 == 0 ? .photo : .video,
                             //thumbnailImage: URL(string: "https://example.com/post\(i)_thumb.jpg")!,
                             thumbnailImage: UIImage(named: "panda"),
-                            postURL: i % 2 == 0 ? URL(string: "https://example.com/post\(i).jpg")! : URL(string: "https://example.com/post\(i)_video.mp4")!,
+                            //postURL: i % 2 == 0 ? URL(string: "https://example.com/post\(i).jpg")! : URL(string: "https://example.com/post\(i)_video.mp4")!,
                             caption: "Caption for post \(i)",
                             likeCount: (1...5).map { PostLike(username: "user\($0)", postIdentifier: "post\(postUser.username)_\(i)") },
                             comments: (1...5).map { PostComment(
                                 username: "user\($0)",
                                 text: "Comment \($0) for post \(postUser.username)_\(i)"
                             )},
-                            
-                            createdDate: Date(),
                             owner: postUser)
         posts.append(post)
     }
