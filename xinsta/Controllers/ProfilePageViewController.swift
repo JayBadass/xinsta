@@ -19,6 +19,8 @@ class ProfilePageViewController: UIViewController {
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var postsCollectionView: UICollectionView!
     
+    @IBOutlet weak var moreButton: UIBarButtonItem!
+    
     var isExpanded = false
     
     override func viewDidLoad() {
@@ -81,5 +83,5 @@ class ProfilePageViewController: UIViewController {
         isExpanded.toggle()
         view.layoutIfNeeded()
     }
-
+    
 }

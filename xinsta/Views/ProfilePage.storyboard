@@ -211,6 +211,7 @@
                         <outlet property="editProfileButton" destination="QvQ-JH-Pf7" id="108-tw-Wke"/>
                         <outlet property="followersLabel" destination="5K6-Bg-WOr" id="Qtj-De-YtL"/>
                         <outlet property="followingLabel" destination="ne1-vv-neh" id="K4g-un-YdJ"/>
+                        <outlet property="moreButton" destination="2UZ-gD-7xz" id="A3L-Aa-n8Z"/>
                         <outlet property="postsCollectionView" destination="P3t-yh-Rfl" id="MIu-tg-rfo"/>
                         <outlet property="postsLabel" destination="vwH-cr-JTD" id="Nvu-zg-2ex"/>
                         <outlet property="profileImageView" destination="yOw-ax-nxm" id="sTx-80-k13"/>
