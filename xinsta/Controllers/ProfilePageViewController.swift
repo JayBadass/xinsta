@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfilePageViewController: UIViewController {
-
+    
     @IBOutlet weak var profilePageNavigationItem: UINavigationItem!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var postsLabel: UILabel!
