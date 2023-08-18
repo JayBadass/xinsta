@@ -10,6 +10,8 @@ import UIKit
 
 class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
+    
+    
     @IBOutlet weak var searchController: UISearchBar!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var myCollectionView: UICollectionView!
@@ -107,6 +109,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     // 컬렉션뷰 셀 클릭 시 해당 세그 실행
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         // 셀이 선택되었을 때 수행할 작업을 여기에 구현
         
         // 세그웨이 실행
@@ -116,18 +119,16 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "YourSegueIdentifier" {
             // 목적지 뷰 컨트롤러 가져오기
-            if let imageViewController = segue.destination as? SearchDetailViewController {
+            if let detailPageViewController = segue.destination as? DetailPageViewController {
                 // 선택된 셀의 인덱스 가져오기
                 if let indexPath = myCollectionView.indexPathsForSelectedItems?.first {
-                    // 이미지 데이터 전달하기
-                    imageViewController.image = images[indexPath.row]
+                    // 필요한 데이터 전달하기
+                    detailPageViewController.selectedPostIndex = indexPath.row
                 }
             }
         }
     }
-    
 }
-
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
