@@ -52,6 +52,18 @@ struct PostComment {
     let text: String
 }
 
+enum NotificationType {
+    case like(username: String)
+    case comment(username: String, text: String)
+}
+
+struct Notification {
+    let type: NotificationType
+    let post: UserPost
+    let date: Date
+}
+
+
 var users: [User] = []
 // FIXME: createdDate로 정렬
 var posts: [UserPost] = []
