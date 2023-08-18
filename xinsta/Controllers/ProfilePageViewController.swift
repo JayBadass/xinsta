@@ -24,6 +24,11 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     var isExpanded = false
     let images = posts.filter {$0.owner.username == myInfo?.username}.map {$0.thumbnailImage}
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
