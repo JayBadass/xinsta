@@ -14,7 +14,6 @@ struct User {
     var name: (first: String, last: String) = ("","")
     var profilePhoto: UIImage
     var counts: UserCount = UserCount(followers: 0, following: 0, posts: 0)
-    var joinDate: Date = Date()
     var password: String
 }
 
