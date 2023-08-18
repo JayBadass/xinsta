@@ -9,25 +9,25 @@ import UIKit
 
 
 class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-
+    
     @IBOutlet weak var searchController: UISearchBar!
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var myCollectionView: UICollectionView!
     
     // 검색어 배열 선언
-
+    
     var searchResults: [String] = []
     let userNames = users.map {$0.username}
     
     // 이미지 배열 선언
     
     let images = posts.map {$0.thumbnailImage}
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
         //searchController 딜리게이트 선언
         searchController.delegate = self
         searchController.placeholder = "검색"
@@ -52,7 +52,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
-
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,18 +71,18 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cellItemForRow: CGFloat = 3
         let minimumSpacing: CGFloat = 2
         let width = (collectionViewWidth - (cellItemForRow - 1) * minimumSpacing) / cellItemForRow
-                
+        
         return CGSize(width: width, height: width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 1  // 세로 간격
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1  // 가로 간격
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)  // 여백 설정
     }
@@ -104,6 +104,28 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
+    
+    // 컬렉션뷰 셀 클릭 시 해당 세그 실행
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 셀이 선택되었을 때 수행할 작업을 여기에 구현
+        
+        // 세그웨이 실행
+        self.performSegue(withIdentifier: "YourSegueIdentifier", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "YourSegueIdentifier" {
+            // 목적지 뷰 컨트롤러 가져오기
+            if let imageViewController = segue.destination as? SearchDetailViewController {
+                // 선택된 셀의 인덱스 가져오기
+                if let indexPath = myCollectionView.indexPathsForSelectedItems?.first {
+                    // 이미지 데이터 전달하기
+                    imageViewController.image = images[indexPath.row]
+                }
+            }
+        }
+    }
+    
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -111,24 +133,24 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         print("검색창이 눌렸습니다.")
         searchBar.showsCancelButton = true
-
+        
         myTableView.isHidden = false
         myCollectionView.isHidden = true
         myTableView.reloadData()
     }
-
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchResults = performSearch(with: searchText)
         print(searchText)
         myTableView.reloadData()  // tableView를 새로고침
         myCollectionView.isHidden = true
         myTableView.isHidden = false
-        }
-
+    }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         searchBar.text = ""
-
+        
         myTableView.isHidden = true
         myCollectionView.isHidden = false
     }
