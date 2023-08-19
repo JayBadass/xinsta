@@ -30,17 +30,19 @@ public struct UserPost {
     var likeCount: [PostLike] = []
     var comments: [PostComment] = []
     var createdDate: Date = Date()
-    let owner: String
+    var owner: String
 }
 
 struct PostLike {
     let username: String
     let postId: UUID
+    var likedDate = Date()
 }
 
 struct PostComment {
     let username: String
     let text: String
+    var commentedDate = Date()
 }
 
 enum NotificationType {
@@ -85,8 +87,9 @@ var posts: [UserPost] = [UserPost(thumbnailImage: UIImage(named: "5nvzjlzgjfum_m
                          UserPost(thumbnailImage: UIImage(named: "lse15070709"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
                          UserPost(thumbnailImage: UIImage(named: "ocean-4243709_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
                          UserPost(thumbnailImage: UIImage(named: "paris-2763066_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
-                         UserPost(thumbnailImage: UIImage(named: "tavern-7411977_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
-                         UserPost(thumbnailImage: UIImage(named: "woman-5779323_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "tavern-7411977_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "5soold."),
+                         UserPost(thumbnailImage: UIImage(named: "woman-5779323_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2023, month: 7, day: 25, hour: 20, minute: 15))!, owner: "5soold."),
                          
 ].sorted(by: {$0.createdDate > $1.createdDate})
+
 var myInfo: String?

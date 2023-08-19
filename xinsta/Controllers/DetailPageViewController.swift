@@ -27,7 +27,7 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
             return
         }
         
-        let currentUser = "currentUser" // 추후 실 사용자로 변경 필요
+        let currentUser = myInfo! // 추후 실 사용자로 변경 필요
         
         let newComment = PostComment(username: currentUser, text: commentText)
         posts[selectedPostIndex].comments.append(newComment)
@@ -61,7 +61,7 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
         let post = posts[selectedPostIndex]
         
         
-        let currentUser = "currentUser" //  추후 실 사용자로 변경 필요
+        let currentUser = myInfo!
         if post.likeCount.contains(where: { $0.username == currentUser }) {
             // 이미 좋아요한 상태
             likeButton.setImage(UIImage(named: "heart_filled"), for: .normal)
@@ -119,7 +119,7 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
     
     @objc func didTapLike(_ sender: UIButton) {
         
-        let currentUser = "currentUser" // 추후 실 사용자로 변경 필요
+        let currentUser = myInfo!
         
         if posts[selectedPostIndex].likeCount.contains(where: { $0.username == currentUser }) {
             // 이미 좋아요한 상태이면 좋아요 취소
