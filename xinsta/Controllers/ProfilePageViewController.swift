@@ -123,12 +123,9 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailSegueIdentifier" {
-            // 목적지 뷰 컨트롤러 가져오기
             if let detailPageViewController = segue.destination as? DetailPageViewController {
-                // 선택된 셀의 인덱스 가져오기
                 if let indexPath = postsCollectionView.indexPathsForSelectedItems?.first {
-                    // 필요한 데이터 전달하기
-                    detailPageViewController.selectedPostIndex = indexPath.row
+                    detailPageViewController.selectedPostIndex = posts.firstIndex(where: {$0.id == posts.filter {$0.owner == myInfo!}[indexPath.row].id})
                 }
             }
         }
