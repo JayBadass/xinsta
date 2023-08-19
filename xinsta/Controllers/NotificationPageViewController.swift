@@ -19,7 +19,7 @@ class NotificationPageViewController: UIViewController, UITableViewDataSource, U
         tableView.delegate = self
         tableView.dataSource = self
         
-        if let user = myInfo {
+        if let user = users.first(where: {$0.username == myInfo}) {
             fetchNotifications(for: user)
         }
         // Do any additional setup after loading the view.
@@ -27,7 +27,7 @@ class NotificationPageViewController: UIViewController, UITableViewDataSource, U
     
     func fetchNotifications(for user: User) {
         // 게시물에 대한 모든 좋아요와 댓글을 찾아 알림으로 변환
-        for post in posts.filter({ $0.owner.username == user.username }) {
+        for post in posts.filter({ $0.owner == user.username }) {
             for like in post.likeCount {
                 notifications.append(Notification(type: .like(username: like.username), post: post, date: Date()))
             }

@@ -40,7 +40,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.likeButton.setImage(UIImage(named: "heart"), for: .normal)
         }
         
-        cell.userName.text = posts[indexPath.row].owner.username
+        cell.userName.text = posts[indexPath.row].owner
         cell.postImage.image = posts[indexPath.row].thumbnailImage
         let postLikes = posts[indexPath.row].likeCount
         if let firstLiker = postLikes.first {
@@ -50,7 +50,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         cell.likeButton.addTarget(self, action: #selector(didTapLike(_:)), for: .touchUpInside)
         cell.likeButton.tag = indexPath.row  // 현재 indexPath.row를 태그로 사용하여 어떤 게시물의 좋아요 버튼이 눌렸는지 판별
-        cell.postUserName.text = posts[indexPath.row].owner.username
+        cell.postUserName.text = posts[indexPath.row].owner
         cell.postText.text = posts[indexPath.row].caption
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -71,7 +71,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             sender.setImage(UIImage(named: "heart_filled"), for: .normal)
         } else {
             // 좋아요 추가
-            let like = PostLike(username: currentUser, postIdentifier: "post\(postIndex + 1)")
+            let like = PostLike(username: currentUser, postId: post.id)
             post.likeCount.append(like)
             sender.setImage(UIImage(named: "heart"), for: .normal)
         }

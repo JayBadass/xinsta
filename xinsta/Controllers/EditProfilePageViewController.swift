@@ -25,7 +25,7 @@ class EditProfilePageViewController: UIViewController, UIImagePickerControllerDe
     }
     
     func setupUI() {
-        guard let _myProfile = users.first(where: {$0.username == myInfo?.username}) else { return }
+        guard let _myProfile = users.first(where: {$0.username == myInfo}) else { return }
         myProfile = _myProfile
         
         profileImageView.image = _myProfile.profilePhoto
@@ -54,10 +54,10 @@ class EditProfilePageViewController: UIViewController, UIImagePickerControllerDe
             myProfile?.username = newUsername
             myProfile?.bio = bioTextField.text!
             
-            if let index = users.firstIndex(where: { $0.username == myInfo?.username }) {
+            if let index = users.firstIndex(where: { $0.username == myInfo }) {
                 users[index] = myProfile!
             }
-            myInfo = myProfile
+            myInfo = newUsername
             
             dismiss(animated: true)
         } else {
