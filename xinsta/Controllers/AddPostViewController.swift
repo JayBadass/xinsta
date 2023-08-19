@@ -27,6 +27,23 @@ class AddPostViewController: UIViewController {
         postTextView.text = "Write your post here..." // Placeholder text
         postTextView.textColor = UIColor.lightGray
         postTextView.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
@@ -56,7 +73,7 @@ class AddPostViewController: UIViewController {
             // FIXME: identifier 변경, user의 포스팅 개수 업데이트
             let postCaption = self.postTextView.textColor == .black ? self.postTextView.text : ""
             let newPost = UserPost(thumbnailImage: image, caption: postCaption!, owner: myInfo!)
-            posts.append(newPost)
+            posts.insert(newPost, at: 0)
             let index = users.firstIndex(where: {$0.username == myInfo!})
             users[index!].counts.posts += 1
             print(posts.map{$0.id})
@@ -79,8 +96,8 @@ class AddPostViewController: UIViewController {
     
     @IBAction func pickImageButtonTapped(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -138,18 +155,21 @@ extension AddPostViewController: UITextViewDelegate {
     }
 }
 
-// MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
+//MARK: - UIImagePickerControllerDelegate
 
 extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let selectedImage = info[.originalImage] as? UIImage {
-            pickedImage = selectedImage
-            postImageView.image = selectedImage
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            postImageView.image = editedImage
+            pickedImage = editedImage
         }
-        picker.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
+}
 
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
+
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+    return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }

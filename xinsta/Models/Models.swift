@@ -88,5 +88,5 @@ var posts: [UserPost] = [UserPost(thumbnailImage: UIImage(named: "5nvzjlzgjfum_m
                          UserPost(thumbnailImage: UIImage(named: "tavern-7411977_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
                          UserPost(thumbnailImage: UIImage(named: "woman-5779323_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
                          
-   ]
+].sorted(by: {$0.createdDate > $1.createdDate})
 var myInfo: String?
