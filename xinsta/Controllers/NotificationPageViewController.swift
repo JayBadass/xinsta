@@ -50,7 +50,7 @@ class NotificationPageViewController: UIViewController, UITableViewDataSource, U
         
         switch notification.type {
         case .like(let username):
-            cell.notificationText.text = "\(username)님이 회원님의\n게시글을 좋아합니다."
+            cell.notificationText.text = "\(username)님이 회원님의 \n게시글을 좋아합니다."
         case .comment(let username, let text):
             cell.notificationText.text = "\(username)님이 댓글을 남겼습니다. :\n\(text)"
         }

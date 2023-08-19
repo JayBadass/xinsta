@@ -90,8 +90,3 @@ var posts: [UserPost] = [UserPost(thumbnailImage: UIImage(named: "5nvzjlzgjfum_m
                          
    ]
 var myInfo: String?
-
-func createDummyData() {
-
-}
-

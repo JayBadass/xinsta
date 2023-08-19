@@ -8,7 +8,7 @@
 import UIKit
 
 
-class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
     
@@ -126,6 +126,15 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                 }
             }
         }
+        if segue.identifier == "SearchSegueIdentifier" {
+              if let searchPageViewController = segue.destination as? SearchDetailViewController, let selectedCell = sender as? UITableViewCell {
+                if let indexPath = myTableView.indexPath(for: selectedCell) {
+                  let selectedText = searchResults[indexPath.row]
+                    print(selectedText)
+                  searchPageViewController.selectedUserName = selectedText
+                }
+              }
+            }
     }
 }
 extension SearchViewController: UISearchBarDelegate {
@@ -171,5 +180,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath)
         cell.textLabel?.text = searchResults[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        // 셀이 선택되었을 때 수행할 작업을 여기에 구현
+
+        // 세그웨이 실행
+        self.performSegue(withIdentifier: "SearchSegueIdentifier", sender: self)
     }
 }

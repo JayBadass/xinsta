@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B3E4C1F2A90B92100E376E7 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E4C1E2A90B92100E376E7 /* SearchDetailViewController.swift */; };
 		3B96D1A42A8E36F900583407 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96D1A32A8E36F900583407 /* SearchViewController.swift */; };
 		3B96D1A62A8E372E00583407 /* SearchPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B96D1A52A8E372E00583407 /* SearchPage.storyboard */; };
 		3B96D1A82A8E3DCD00583407 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B96D1A72A8E3DCD00583407 /* CollectionViewCell.xib */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B3E4C1E2A90B92100E376E7 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		3B96D1A32A8E36F900583407 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3B96D1A52A8E372E00583407 /* SearchPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchPage.storyboard; sourceTree = "<group>"; };
 		3B96D1A72A8E3DCD00583407 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				D2AA11E52A8ACFE1005431E1 /* ProfilePageViewController.swift */,
 				D2AA11E72A8AD033005431E1 /* EditProfilePageViewController.swift */,
 				3B96D1A32A8E36F900583407 /* SearchViewController.swift */,
+				3B3E4C1E2A90B92100E376E7 /* SearchDetailViewController.swift */,
 				3B96D1AF2A8E616800583407 /* SearchResultTableViewCell.swift */,
 				3B96D1AB2A8E585B00583407 /* CollectionViewCell.swift */,
 				69925E8D2A8A163400EC6D7C /* MainTableViewCell.swift */,
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2AA11E42A8ACF76005431E1 /* Extensions.swift in Sources */,
+				3B3E4C1F2A90B92100E376E7 /* SearchDetailViewController.swift in Sources */,
 				D2AA11E62A8ACFE1005431E1 /* ProfilePageViewController.swift in Sources */,
 				3B96D1B02A8E616900583407 /* SearchResultTableViewCell.swift in Sources */,
 				D2AA11E82A8AD033005431E1 /* EditProfilePageViewController.swift in Sources */,
