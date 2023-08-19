@@ -127,6 +127,27 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
 //        }
 //    }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // 셀이 선택되었을 때 수행할 작업을 여기에 구현
+        
+        // 세그웨이 실행
+        self.performSegue(withIdentifier: "DetailSegueIdentifier", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailSegueIdentifier" {
+            // 목적지 뷰 컨트롤러 가져오기
+            if let detailPageViewController = segue.destination as? DetailPageViewController {
+                // 선택된 셀의 인덱스 가져오기
+                if let indexPath = postsCollectionView.indexPathsForSelectedItems?.first {
+                    // 필요한 데이터 전달하기
+                    detailPageViewController.selectedPostIndex = indexPath.row
+                }
+            }
+        }
+    }
+    
     @objc func biolabelTapped(sender: UITapGestureRecognizer) {
         if isExpanded {
             bioLabel.numberOfLines = 3

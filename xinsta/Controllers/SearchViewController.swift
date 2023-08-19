@@ -68,7 +68,6 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let image = images[indexPath.row]
         let collectionViewWidth = collectionView.bounds.width
         let cellItemForRow: CGFloat = 3
         let minimumSpacing: CGFloat = 2
