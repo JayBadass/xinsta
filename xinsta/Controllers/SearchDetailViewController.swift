@@ -118,11 +118,11 @@ class SearchDetailViewController: UIViewController, UICollectionViewDataSource, 
         // 셀이 선택되었을 때 수행할 작업을 여기에 구현
         
         // 세그웨이 실행
-        self.performSegue(withIdentifier: "DetailSegueIdentifier", sender: self)
+        self.performSegue(withIdentifier: "SearchDetailSegueIdentifier", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DetailSegueIdentifier" {
+        if segue.identifier == "SearchDetailSegueIdentifier" {
             // 목적지 뷰 컨트롤러 가져오기
             if let detailPageViewController = segue.destination as? DetailPageViewController {
                 // 선택된 셀의 인덱스 가져오기
