@@ -70,7 +70,7 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
             likeButton.setImage(UIImage(named: "heart"), for: .normal)
         }
         
-        userName.text = post.owner.username
+        userName.text = post.owner
         postImage.image = post.thumbnailImage
         let postLikes = post.likeCount
         if let firstLiker = postLikes.first {
@@ -80,7 +80,7 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
         }
         likeButton.addTarget(self, action: #selector(didTapLike(_:)), for: .touchUpInside)
         likeButton.tag = selectedPostIndex  // 현재 indexPath.row를 태그로 사용하여 어떤 게시물의 좋아요 버튼이 눌렸는지 판별
-        postUserName.text = post.owner.username
+        postUserName.text = post.owner
         caption.text = post.caption
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -128,7 +128,7 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
             }
         } else {
             // 좋아요하지 않은 상태이면 좋아요 추가
-            let newLike = PostLike(username: currentUser, postIdentifier: "")
+            let newLike = PostLike(username: currentUser, postId: posts[selectedPostIndex].id)
             posts[selectedPostIndex].likeCount.append(newLike)
         }
         

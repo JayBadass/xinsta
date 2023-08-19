@@ -22,7 +22,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var moreButton: UIBarButtonItem!
     
     var isExpanded = false
-    let images = posts.filter {$0.owner.username == myInfo?.username}.map {$0.thumbnailImage}
+    let images = posts.filter {$0.owner == myInfo!}.map {$0.thumbnailImage}
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,7 +36,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func setupUI() {
-        guard let myProfile = users.first(where: {$0.username == myInfo?.username}) else { return }
+        guard let myProfile = users.first(where: {$0.username == myInfo!}) else { return }
         
         profilePageNavigationItem.title = myProfile.username
         

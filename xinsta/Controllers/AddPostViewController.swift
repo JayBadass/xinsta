@@ -55,9 +55,11 @@ class AddPostViewController: UIViewController {
             
             // FIXME: identifier 변경, user의 포스팅 개수 업데이트
             let postCaption = self.postTextView.textColor == .black ? self.postTextView.text : ""
-            let newPost = UserPost(identifier: String(Int.random(in: 0...10000)), thumbnailImage: image, caption: postCaption!, owner: myInfo!)
+            let newPost = UserPost(thumbnailImage: image, caption: postCaption!, owner: myInfo!)
             posts.append(newPost)
-            print(posts.map{$0.identifier})
+            let index = users.firstIndex(where: {$0.username == myInfo!})
+            users[index!].counts.posts += 1
+            print(posts.map{$0.id})
             if let mainTabBarController = UIStoryboard(name: "MainPage", bundle: nil).instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {
                 mainTabBarController.selectedIndex = 0
                 if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

@@ -88,7 +88,7 @@ class SignInViewController: UIViewController {
                 showErrorAlert(title: "로그인 실패", message: "비밀번호가 일치하지 않습니다.")
                 resetInputFields()
             } else {
-                myInfo = existingUser
+                myInfo = existingUser.username
                 print("로그인 성공: \(myInfo!)")
                 if let mainTabBarController = UIStoryboard(name: "MainPage", bundle: nil).instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {
                     mainTabBarController.selectedIndex = 0

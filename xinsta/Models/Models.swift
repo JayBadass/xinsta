@@ -14,7 +14,6 @@ struct User {
     var name: (first: String, last: String) = ("","")
     var profilePhoto: UIImage
     var counts: UserCount = UserCount(followers: 0, following: 0, posts: 0)
-    var joinDate: Date = Date()
     var password: String
 }
 
@@ -24,27 +23,19 @@ struct UserCount {
     var posts: Int
 }
 
-public enum UserPostType: String {
-    case photo = "Photo"
-    case video = "Video"
-}
-
 public struct UserPost {
-    let identifier: String
-    //let postType: UserPostType
-    //    let thumbnailImage: URL
+    let id = UUID()
     let thumbnailImage: UIImage?
-    //let postURL: URL // either video URL or full resolution photo
     let caption: String
     var likeCount: [PostLike] = []
     var comments: [PostComment] = []
-    let createdDate: Date = Date()
-    let owner: User
+    var createdDate: Date = Date()
+    let owner: String
 }
 
 struct PostLike {
     let username: String
-    let postIdentifier: String
+    let postId: UUID
 }
 
 struct PostComment {
@@ -63,40 +54,37 @@ struct Notification {
     let date: Date
 }
 
+let createdDate: Date = Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!
 
-var users: [User] = []
+var users: [User] = [User(username: "hojxll_34", bio: "Et per etiam eirmod persecuti, impetus eruditi incorrupte sea te. Option mandamus no duo. Mea id animal dissentiet, nulla affert cu eos, vel zril inciderint id. Ex pri appetere atomorum, ex vis audiam saperet. Nam eu repudiare adipiscing dissentiunt, tale saepe laboramus usu ne. Molestiae comprehensam sed et, mei cu homero salutatus.", profilePhoto: UIImage(named: "gwwdr")!, counts: UserCount(followers: 46, following: 20, posts: 0), password: "aaaaa1"),
+                     User(username: "5soold.", bio: "Et per \netiam eirmod \npersecuti", profilePhoto: UIImage(named: "66cc0fed32")!, counts: UserCount(followers: 984, following: 89, posts: 0), password: "aaaaa1"),
+                     User(username: "x_dfj.zz", profilePhoto: UIImage(named: "ncde")!, counts: UserCount(followers: 167, following: 182, posts: 0), password: "aaaaa1"),
+                     User(username: "e.xegg34", bio: "Et per", name: (first: "Jaehee", last: "Lee"), profilePhoto: UIImage(named: "output_2572710016")!, counts: UserCount(followers: 46, following: 20, posts: 0), password: "aaaaa1")]
 // FIXME: createdDate로 정렬
-var posts: [UserPost] = []
-var myInfo: User?
+var posts: [UserPost] = [UserPost(thumbnailImage: UIImage(named: "5nvzjlzgjfum_m"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "66cc0fed32"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "377979_2"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "20180801144452_65527fe4cc062604bf791eed589909d0_y8mb"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "body_1646363596"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "image_2661538551521867165449"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "IMG_3121_jpg"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "IMG_3144_jpg"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "IMG_4396_jpg"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "IMG_4401"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "IMG_6447"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "IMG_6683"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "KakaoTalk_20210813_225508726_10"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "KakaoTalk_20210813_225508726_12"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "KakaoTalk_20210813_225508726"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "lse15070709"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "ocean-4243709_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "paris-2763066_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "tavern-7411977_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+                         UserPost(thumbnailImage: UIImage(named: "woman-5779323_640"), caption: "", createdDate: Calendar.current.date(from: DateComponents(year: 2000, month: 3, day: 25, hour: 20, minute: 15))!, owner: "hojxll_34"),
+   ]
+var myInfo: String?
 
 func createDummyData() {
-    // User Dummy Data
-    for i in 1...5 {
-        let user = User(username: "user\(i)",
-                        bio: "User \(i) bio",
-                        name: (first: "First\(i)", last: "Last\(i)"),
-                        profilePhoto: UIImage(systemName: "person.circle.fill")!,
-                        counts: UserCount(followers: i*100, following: i*50, posts: i*10),
-                        joinDate: Date(), password: "user\(i)")
-        users.append(user)
-    }
-    
-    // User Post Dummy Data
-    for i in 1...100 {
-        let postUser = users[i % 5]
-        let post = UserPost(identifier: "post\(i)",
-                            //postType: i % 2 == 0 ? .photo : .video,
-                            //thumbnailImage: URL(string: "https://example.com/post\(i)_thumb.jpg")!,
-                            thumbnailImage: UIImage(named: "panda"),
-                            //postURL: i % 2 == 0 ? URL(string: "https://example.com/post\(i).jpg")! : URL(string: "https://example.com/post\(i)_video.mp4")!,
-                            caption: "Caption for post \(i)",
-                            likeCount: (1...5).map { PostLike(username: "user\($0)", postIdentifier: "post\(postUser.username)_\(i)") },
-                            comments: (1...5).map { PostComment(
-                                username: "user\($0)",
-                                text: "Comment \($0) for post \(postUser.username)_\(i)"
-                            )},
-                            owner: postUser)
-        posts.append(post)
-    }
+
 }
 
