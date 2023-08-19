@@ -31,7 +31,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) as! MainTableViewCell
         
         let post = posts[indexPath.row]
-        let currentUser = "currentUser" //  추후 실 사용자로 변경 필요
+        let currentUser = myInfo!
         if post.likeCount.contains(where: { $0.username == currentUser }) {
             // 이미 좋아요한 상태
             cell.likeButton.setImage(UIImage(named: "heart_filled"), for: .normal)
@@ -64,7 +64,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let postIndex = sender.tag
         var post = posts[postIndex]
         
-        let currentUser = "currentUser"
+        let currentUser = myInfo!
         if let index = post.likeCount.firstIndex(where: { $0.username == currentUser }) {
             // 이미 좋아요한 상태이므로, 좋아요 취소
             post.likeCount.remove(at: index)
