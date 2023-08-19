@@ -14,7 +14,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var postsLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
-    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var postsCollectionView: UICollectionView!
@@ -47,7 +47,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         followersLabel.text = ("\(myProfile.counts.followers)")
         followingLabel.text = ("\(myProfile.counts.following)")
         
-        usernameLabel.text = myProfile.username
+        fullnameLabel.text = myProfile.name.last + myProfile.name.first == "" ? " " : myProfile.name.last + myProfile.name.first
         
         editProfileButton.layer.cornerRadius = 5
         editProfileButton.layer.borderWidth = 0.5
