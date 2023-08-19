@@ -23,6 +23,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     
     var isExpanded = false
     let images = posts.filter {$0.owner == myInfo!}.map {$0.thumbnailImage}
+    // $0.owner == myInfo! -> myInfo 부분을 tableViewCell 에 있는 유저의 이름으로 변경
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,6 +38,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     
     func setupUI() {
         guard let myProfile = users.first(where: {$0.username == myInfo!}) else { return }
+        //$0.username == myInfo! -> myInfo 부분을 tableViewCell 에 있는 유저의 이름으로 변경
         
         profilePageNavigationItem.title = myProfile.username
         
@@ -116,16 +118,6 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)  // 여백 설정
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "profileSegue",
-//           let detailVC = segue.destination as? DetailPageViewController,
-//           let selectedIndexPaths = postsCollectionView.indexPathsForSelectedItems,
-//           let selectedIndexPath = selectedIndexPaths.first {
-//            detailVC.selectedPostIndex = selectedIndexPath.item
-//            //detailVC.delegate = self
-//        }
-//    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

@@ -100,11 +100,22 @@
                         <outlet property="myTableView" destination="jD6-2b-bXf" id="hv0-xi-sih"/>
                         <outlet property="searchController" destination="FiI-rl-lBR" id="lWu-Xe-58V"/>
                         <segue destination="WcM-si-v2G" kind="showDetail" identifier="YourSegueIdentifier" id="sSl-7N-aMX"/>
+                        <segue destination="eiL-QZ-0qQ" kind="show" identifier="SearchSegueIdentifier" id="bvf-u2-sE0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="58" y="-2"/>
+        </scene>
+        <!--SearchDetailPage-->
+        <scene sceneID="TPi-OW-rTH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchDetailPage" id="eiL-QZ-0qQ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eFf-7C-R9D"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iZ1-PS-Fvi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="-46"/>
         </scene>
         <!--DetailPage-->
         <scene sceneID="8o7-9a-Yft">

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B3E4C1D2A90B53200E376E7 /* SearchDetailPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B3E4C1C2A90B53200E376E7 /* SearchDetailPage.storyboard */; };
+		3B3E4C1F2A90B92100E376E7 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E4C1E2A90B92100E376E7 /* SearchDetailViewController.swift */; };
 		3B96D1A42A8E36F900583407 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B96D1A32A8E36F900583407 /* SearchViewController.swift */; };
 		3B96D1A62A8E372E00583407 /* SearchPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B96D1A52A8E372E00583407 /* SearchPage.storyboard */; };
 		3B96D1A82A8E3DCD00583407 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B96D1A72A8E3DCD00583407 /* CollectionViewCell.xib */; };
@@ -39,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B3E4C1C2A90B53200E376E7 /* SearchDetailPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchDetailPage.storyboard; sourceTree = "<group>"; };
+		3B3E4C1E2A90B92100E376E7 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		3B96D1A32A8E36F900583407 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3B96D1A52A8E372E00583407 /* SearchPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchPage.storyboard; sourceTree = "<group>"; };
 		3B96D1A72A8E3DCD00583407 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				D2AA11E52A8ACFE1005431E1 /* ProfilePageViewController.swift */,
 				D2AA11E72A8AD033005431E1 /* EditProfilePageViewController.swift */,
 				3B96D1A32A8E36F900583407 /* SearchViewController.swift */,
+				3B3E4C1E2A90B92100E376E7 /* SearchDetailViewController.swift */,
 				3B96D1AF2A8E616800583407 /* SearchResultTableViewCell.swift */,
 				3B96D1AB2A8E585B00583407 /* CollectionViewCell.swift */,
 				69925E8D2A8A163400EC6D7C /* MainTableViewCell.swift */,
@@ -141,6 +146,7 @@
 				D2BD05932A8DAF2C0087BDFB /* SignUpPage.storyboard */,
 				D2BD059A2A8DE3A70087BDFB /* SignInPage.storyboard */,
 				3B96D1A52A8E372E00583407 /* SearchPage.storyboard */,
+				3B3E4C1C2A90B53200E376E7 /* SearchDetailPage.storyboard */,
 				7EFD20492A8E366C00E9FC61 /* NotificationPage.storyboard */,
 				D2BD059E2A8E3EF80087BDFB /* AddPostPage.storyboard */,
 				69BCBD302A8F2AEF00C1A7C7 /* DetailPage.storyboard */,
@@ -230,6 +236,7 @@
 				D2BD059F2A8E3EF80087BDFB /* AddPostPage.storyboard in Resources */,
 				69925E862A89E5EB00EC6D7C /* .gitignore in Resources */,
 				D2BD05942A8DAF2C0087BDFB /* SignUpPage.storyboard in Resources */,
+				3B3E4C1D2A90B53200E376E7 /* SearchDetailPage.storyboard in Resources */,
 				69925E7E2A89E56400EC6D7C /* LaunchScreen.storyboard in Resources */,
 				3B96D1A82A8E3DCD00583407 /* CollectionViewCell.xib in Resources */,
 				69925E7B2A89E56400EC6D7C /* Assets.xcassets in Resources */,
@@ -250,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2AA11E42A8ACF76005431E1 /* Extensions.swift in Sources */,
+				3B3E4C1F2A90B92100E376E7 /* SearchDetailViewController.swift in Sources */,
 				D2AA11E62A8ACFE1005431E1 /* ProfilePageViewController.swift in Sources */,
 				3B96D1B02A8E616900583407 /* SearchResultTableViewCell.swift in Sources */,
 				D2AA11E82A8AD033005431E1 /* EditProfilePageViewController.swift in Sources */,
