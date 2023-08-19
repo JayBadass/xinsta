@@ -28,6 +28,16 @@
             </objects>
             <point key="canvasLocation" x="-582" y="-630"/>
         </scene>
+        <!--SignInPage-->
+        <scene sceneID="yvm-8E-S8f">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignInPage" id="Owk-Rz-Xcl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="z6g-Yh-Cej"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wCf-F1-IGA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="-1066"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="lJl-56-B5f">
             <objects>
@@ -214,7 +224,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="SFC-ri-YZJ">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="line.3.horizontal" catalog="system" id="2UZ-gD-7xz"/>
+                        <barButtonItem key="rightBarButtonItem" title="logout" image="rectangle.portrait.and.arrow.forward" catalog="system" id="2UZ-gD-7xz">
+                            <connections>
+                                <action selector="logoutButtonTapped:" destination="jvY-sX-3rj" id="Gyn-RT-b9q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -222,13 +236,14 @@
                         <outlet property="editProfileButton" destination="QvQ-JH-Pf7" id="108-tw-Wke"/>
                         <outlet property="followersLabel" destination="5K6-Bg-WOr" id="Qtj-De-YtL"/>
                         <outlet property="followingLabel" destination="ne1-vv-neh" id="K4g-un-YdJ"/>
-                        <outlet property="moreButton" destination="2UZ-gD-7xz" id="A3L-Aa-n8Z"/>
+                        <outlet property="logoutButton" destination="2UZ-gD-7xz" id="A3L-Aa-n8Z"/>
                         <outlet property="postsCollectionView" destination="P3t-yh-Rfl" id="MIu-tg-rfo"/>
                         <outlet property="postsLabel" destination="vwH-cr-JTD" id="Nvu-zg-2ex"/>
                         <outlet property="profileImageView" destination="yOw-ax-nxm" id="sTx-80-k13"/>
                         <outlet property="profilePageNavigationItem" destination="SFC-ri-YZJ" id="1Ki-Nj-rGh"/>
                         <outlet property="usernameLabel" destination="0Pi-o1-ns7" id="5Sb-kO-Fcf"/>
                         <segue destination="BgH-2L-BQM" kind="showDetail" identifier="DetailSegueIdentifier" id="0pR-46-glU"/>
+                        <segue destination="Owk-Rz-Xcl" kind="presentation" identifier="toLoginVC" modalPresentationStyle="fullScreen" id="ziL-uW-V0i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzd-qu-guk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -421,9 +436,9 @@
     </scenes>
     <resources>
         <image name="Image1" width="224.66667175292969" height="399.33334350585938"/>
-        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="profile" width="25" height="25"/>
         <image name="profile_selected" width="25" height="25"/>
+        <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

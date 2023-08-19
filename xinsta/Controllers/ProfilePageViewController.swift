@@ -19,11 +19,10 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var postsCollectionView: UICollectionView!
     
-    @IBOutlet weak var moreButton: UIBarButtonItem!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     
     var isExpanded = false
     let images = posts.filter {$0.owner == myInfo!}.map {$0.thumbnailImage}
-    // $0.owner == myInfo! -> myInfo 부분을 tableViewCell 에 있는 유저의 이름으로 변경
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,7 +37,6 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
     
     func setupUI() {
         guard let myProfile = users.first(where: {$0.username == myInfo!}) else { return }
-        //$0.username == myInfo! -> myInfo 부분을 tableViewCell 에 있는 유저의 이름으로 변경
         
         profilePageNavigationItem.title = myProfile.username
         
@@ -56,7 +54,7 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         editProfileButton.layer.borderColor = UIColor.lightGray.cgColor
         
         bioLabel.text = myProfile.bio
-
+        
         updateLabelLayout(bioLabel)
         
         postsCollectionView.dataSource = self
@@ -103,27 +101,23 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         let cellItemForRow: CGFloat = 3
         let minimumSpacing: CGFloat = 2
         let width = (collectionViewWidth - (cellItemForRow - 1) * minimumSpacing) / cellItemForRow
-                
+        
         return CGSize(width: width, height: width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 1  // 세로 간격
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1  // 가로 간격
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)  // 여백 설정
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        // 셀이 선택되었을 때 수행할 작업을 여기에 구현
-        
-        // 세그웨이 실행
         self.performSegue(withIdentifier: "DetailSegueIdentifier", sender: self)
     }
     
@@ -138,6 +132,40 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
                 }
             }
         }
+    }
+    
+    @IBAction func logoutButtonTapped(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+            self.confirmLogout()
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(logoutAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func confirmLogout() {
+        let confirmAlertController = UIAlertController(title: "Confirm Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
+            self.performLogout()
+        }
+        
+        confirmAlertController.addAction(cancelAction)
+        confirmAlertController.addAction(confirmAction)
+        
+        present(confirmAlertController, animated: true, completion: nil)
+    }
+    
+    func performLogout() {
+        performSegue(withIdentifier: "toLoginVC", sender: nil)
     }
     
     @objc func biolabelTapped(sender: UITapGestureRecognizer) {
