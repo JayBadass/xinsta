@@ -228,11 +228,20 @@
                         <outlet property="profileImageView" destination="yOw-ax-nxm" id="sTx-80-k13"/>
                         <outlet property="profilePageNavigationItem" destination="SFC-ri-YZJ" id="1Ki-Nj-rGh"/>
                         <outlet property="usernameLabel" destination="0Pi-o1-ns7" id="5Sb-kO-Fcf"/>
+                        <segue destination="BgH-2L-BQM" kind="showDetail" identifier="DetailSegueIdentifier" id="0pR-46-glU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzd-qu-guk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="148.85496183206106" y="-630.28169014084506"/>
+        </scene>
+        <!--DetailPage-->
+        <scene sceneID="5q8-Ua-RuJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailPage" id="BgH-2L-BQM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="49c-Gf-9Ai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-50" y="-157"/>
         </scene>
         <!--Edit Profile Page View Controller-->
         <scene sceneID="ZC8-H2-z9g">
