@@ -134,7 +134,7 @@ class SearchDetailViewController: UIViewController, UICollectionViewDataSource, 
                 // 선택된 셀의 인덱스 가져오기
                 if let indexPath = tableViewPostCollectionView.indexPathsForSelectedItems?.first {
                     // 필요한 데이터 전달하기
-                    detailPageViewController.selectedPostIndex = posts.firstIndex(where: {$0.id == posts.filter {$0.owner == myInfo!}[indexPath.row].id})
+                    detailPageViewController.selectedPostIndex = posts.firstIndex(where: {$0.id == posts.filter {$0.owner == selectedUserName!}[indexPath.row].id})
                 }
             }
         }
