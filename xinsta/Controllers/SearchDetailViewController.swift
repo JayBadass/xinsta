@@ -50,8 +50,8 @@ class SearchDetailViewController: UIViewController, UICollectionViewDataSource, 
         tableViewProfileImageView.circleImage = true
         
         tableViewPostsLabel.text = ("\(myProfile.counts.posts)")
-        tableViewFollowersLabel.text = ("\(myProfile.counts.followers)")
-        tableViewFollowingLabel.text = ("\(myProfile.counts.following)")
+        tableViewFollowersLabel.text = myProfile.counts.followers.formatNumber()
+        tableViewFollowingLabel.text = myProfile.counts.following.formatNumber()
         
         tableViewNameLabel.text = myProfile.username
         

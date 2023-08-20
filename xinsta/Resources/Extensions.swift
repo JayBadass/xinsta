@@ -60,3 +60,20 @@ extension String {
         }
 }
 
+extension Int {
+    func formatNumber() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 1
+        
+        if self >= 1000 && self < 1000000 {
+            formatter.positiveSuffix = "K"
+            return formatter.string(from: NSNumber(value: Double(self) / 1000)) ?? "\(self)"
+        } else if self >= 1000000 {
+            formatter.positiveSuffix = "M"
+            return formatter.string(from: NSNumber(value: Double(self) / 1000000)) ?? "\(self)"
+        } else {
+            return "\(self)"
+        }
+    }
+}

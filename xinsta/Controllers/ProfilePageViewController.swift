@@ -44,8 +44,8 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         profileImageView.circleImage = true
         
         postsLabel.text = ("\(myProfile.counts.posts)")
-        followersLabel.text = formatNumber(myProfile.counts.followers)
-        followingLabel.text = formatNumber(myProfile.counts.following)
+        followersLabel.text = myProfile.counts.followers.formatNumber()
+        followingLabel.text = myProfile.counts.following.formatNumber()
         
         fullnameLabel.text = myProfile.name.last + myProfile.name.first == "" ? " " : myProfile.name.last + myProfile.name.first
         
@@ -61,22 +61,6 @@ class ProfilePageViewController: UIViewController, UICollectionViewDataSource, U
         postsCollectionView.delegate = self
         let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
         postsCollectionView.register(nib, forCellWithReuseIdentifier: "CollectionViewCell")
-    }
-    
-    func formatNumber(_ number: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 1
-        
-        if number >= 1000 && number < 1000000 {
-            formatter.positiveSuffix = "K"
-            return formatter.string(from: NSNumber(value: Double(number) / 1000)) ?? "\(number)"
-        } else if number >= 1000000 {
-            formatter.positiveSuffix = "M"
-            return formatter.string(from: NSNumber(value: Double(number) / 1000000)) ?? "\(number)"
-        } else {
-            return "\(number)"
-        }
     }
     
     // FIXME: 더보기/접기 글씨 없음, label 전체 터치됨
