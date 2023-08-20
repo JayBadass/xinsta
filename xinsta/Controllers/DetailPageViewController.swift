@@ -13,7 +13,6 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var postImage: UIImageView!
-    @IBOutlet weak var postUserName: UILabel!
     @IBOutlet weak var caption: UILabel!
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var likeButton: UIButton!
@@ -52,9 +51,9 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
         
         viewBinding()
         
+        setupKeyboardDismissRecognizer()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        // Do any additional setup after loading the view.
     }
     
     func viewBinding() {
@@ -70,6 +69,14 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
             likeButton.setImage(UIImage(named: "heart"), for: .normal)
         }
         
+        profileImage.image = users.first(where: {$0.username == post.owner})?.profilePhoto
+        profileImage.circleImage = true
+        
+        let attributedText: NSAttributedString
+        attributedText = attributedString(with: post.owner, actionText: " "+post.caption)
+        caption.attributedText = attributedText
+        caption.contentMode = .top
+        
         userName.text = post.owner
         postImage.image = post.thumbnailImage
         let postLikes = post.likeCount
@@ -80,15 +87,26 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
         }
         likeButton.addTarget(self, action: #selector(didTapLike(_:)), for: .touchUpInside)
         likeButton.tag = selectedPostIndex  // 현재 indexPath.row를 태그로 사용하여 어떤 게시물의 좋아요 버튼이 눌렸는지 판별
-        postUserName.text = post.owner
-        caption.text = post.caption
+
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
         let dateString = dateFormatter.string(from: post.createdDate)
         postDate.text = dateString
         
-        let isLikedByCurrentUser = post.likeCount.contains { $0.username == "currentUser" } // "currentUser"는 현재 사용자의 이름을 나타냅니다.
+        let isLikedByCurrentUser = post.likeCount.contains { $0.username == myInfo! }
         updateLikeStatus(isLiked: isLikedByCurrentUser)
+    }
+    
+    func attributedString(with username: String, actionText: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: "\(username)", attributes: [
+            .font: UIFont.systemFont(ofSize: 15, weight: .semibold)
+        ])
+        
+        attributedString.append(NSAttributedString(string: actionText, attributes: [
+            .font: UIFont.systemFont(ofSize: 15, weight: .regular)
+        ]))
+        
+        return attributedString
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -156,6 +174,18 @@ class DetailPageViewController: UIViewController, UITableViewDataSource, UITable
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
+    }
+    
+    func setupKeyboardDismissRecognizer() {
+        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard)
+        )
+        self.view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
