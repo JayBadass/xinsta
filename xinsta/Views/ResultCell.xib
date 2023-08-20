@@ -25,16 +25,36 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0fK-eV-YFm">
+                        <rect key="frame" x="20" y="2" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="Bo9-ss-1vv"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7m-zZ-wxj">
+                        <rect key="frame" x="77" y="11.999999999999998" width="41.333333333333343" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="h7m-zZ-wxj" firstAttribute="leading" secondItem="0fK-eV-YFm" secondAttribute="trailing" constant="17" id="8P5-kd-L4X"/>
+                    <constraint firstAttribute="bottom" secondItem="h7m-zZ-wxj" secondAttribute="bottom" constant="11.67" id="LHd-B1-K1p"/>
+                    <constraint firstAttribute="bottom" secondItem="0fK-eV-YFm" secondAttribute="bottom" constant="2" id="MXo-PW-cc7"/>
+                    <constraint firstItem="h7m-zZ-wxj" firstAttribute="leading" secondItem="0fK-eV-YFm" secondAttribute="trailing" constant="17" id="UaI-Dy-eZW"/>
                     <constraint firstItem="e73-CF-V5z" firstAttribute="top" secondItem="Iei-98-z45" secondAttribute="top" id="ZkE-o5-tgB"/>
+                    <constraint firstItem="h7m-zZ-wxj" firstAttribute="top" secondItem="Iei-98-z45" secondAttribute="top" constant="12" id="aWH-dG-Iax"/>
                     <constraint firstAttribute="trailing" secondItem="e73-CF-V5z" secondAttribute="trailing" id="cHR-fz-vwZ"/>
+                    <constraint firstItem="0fK-eV-YFm" firstAttribute="leading" secondItem="Iei-98-z45" secondAttribute="leading" constant="20" symbolic="YES" id="nwN-9g-xkN"/>
                     <constraint firstItem="e73-CF-V5z" firstAttribute="leading" secondItem="Iei-98-z45" secondAttribute="leading" constant="10" id="reE-0T-3tL"/>
+                    <constraint firstItem="0fK-eV-YFm" firstAttribute="top" secondItem="Iei-98-z45" secondAttribute="top" constant="2" id="s3B-ad-oVI"/>
                     <constraint firstAttribute="bottom" secondItem="e73-CF-V5z" secondAttribute="bottom" id="xdM-eq-5yA"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="resultTableView" destination="e73-CF-V5z" id="GyT-Ik-wHX"/>
+                <outlet property="profileImageView" destination="0fK-eV-YFm" id="sFP-Le-Gby"/>
+                <outlet property="profileUserName" destination="h7m-zZ-wxj" id="wa7-Zf-Cf4"/>
             </connections>
             <point key="canvasLocation" x="81.679389312977094" y="20.422535211267608"/>
         </tableViewCell>
