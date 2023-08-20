@@ -50,14 +50,33 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         cell.likeButton.addTarget(self, action: #selector(didTapLike(_:)), for: .touchUpInside)
         cell.likeButton.tag = indexPath.row  // 현재 indexPath.row를 태그로 사용하여 어떤 게시물의 좋아요 버튼이 눌렸는지 판별
-        cell.postUserName.text = posts[indexPath.row].owner
-        cell.postText.text = posts[indexPath.row].caption
+        
+        cell.profileImage.image = users.first(where: {$0.username == posts[indexPath.row].owner})?.profilePhoto
+        cell.profileImage.circleImage = true
+        
+        let attributedText: NSAttributedString
+        attributedText = attributedString(with: posts[indexPath.row].owner, actionText: " "+posts[indexPath.row].caption)
+        cell.postText.attributedText = attributedText
+        cell.postText.contentMode = .top
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
         let dateString = dateFormatter.string(from: posts[indexPath.row].createdDate)
         cell.postDate.text = dateString
         
         return cell
+    }
+    
+    func attributedString(with username: String, actionText: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: "\(username)", attributes: [
+            .font: UIFont.systemFont(ofSize: 15, weight: .semibold)
+        ])
+        
+        attributedString.append(NSAttributedString(string: actionText, attributes: [
+            .font: UIFont.systemFont(ofSize: 15, weight: .regular)
+        ]))
+        
+        return attributedString
     }
     
     @objc func didTapLike(_ sender: UIButton) {
@@ -97,7 +116,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var postText: UILabel!
-    @IBOutlet weak var postUserName: UILabel!
+    //@IBOutlet weak var postUserName: UILabel!
     @IBOutlet weak var likeCounts: UILabel!
     
     var isLiked: Bool = false
