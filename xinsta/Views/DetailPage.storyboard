@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023년 8월 14일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pa-XY-Vrt">
-                                <rect key="frame" x="19.999999999999993" y="613" width="95.333333333333314" height="15.666666666666629"/>
+                                <rect key="frame" x="19.999999999999993" y="648" width="95.333333333333314" height="15.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.4690418361" green="0.46609188750000002" blue="0.47199178479999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -59,10 +59,10 @@
                                 <buttonConfiguration key="configuration" style="plain" image="comment"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="20" estimatedRowHeight="-1" sectionHeaderHeight="7" estimatedSectionHeaderHeight="-1" sectionFooterHeight="7" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0eg-yi-v2K">
-                                <rect key="frame" x="20" y="633.66666666666663" width="353" height="110"/>
+                                <rect key="frame" x="20" y="668.66666666666663" width="353" height="90"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="tPY-G6-sGf"/>
+                                    <constraint firstAttribute="height" constant="90" id="tPY-G6-sGf"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailPageTableViewCell" rowHeight="20" id="yg6-D5-VLJ" customClass="DetailPageTableViewCell" customModule="xinsta" customModuleProvider="target">
@@ -73,7 +73,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ganadara" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBE-jc-Cx3">
-                                                    <rect key="frame" x="95" y="1" width="258" height="18"/>
+                                                    <rect key="frame" x="90" y="1" width="263" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                                                 <constraint firstItem="eY7-8F-wHa" firstAttribute="leading" secondItem="mBt-1I-VfI" secondAttribute="leading" id="Xce-wT-Zl5"/>
                                                 <constraint firstItem="XBE-jc-Cx3" firstAttribute="centerY" secondItem="mBt-1I-VfI" secondAttribute="centerY" id="bcg-20-SP7"/>
                                                 <constraint firstAttribute="trailing" secondItem="XBE-jc-Cx3" secondAttribute="trailing" id="iXP-gx-ToA"/>
-                                                <constraint firstItem="XBE-jc-Cx3" firstAttribute="leading" secondItem="eY7-8F-wHa" secondAttribute="trailing" constant="15" id="rkA-3D-ikU"/>
+                                                <constraint firstItem="XBE-jc-Cx3" firstAttribute="leading" secondItem="eY7-8F-wHa" secondAttribute="trailing" constant="10" id="rkA-3D-ikU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -144,11 +144,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ganadara" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJD-2N-E0u">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ganadara" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJD-2N-E0u">
                                 <rect key="frame" x="20" y="536" width="353" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="F9u-sZ-BHS"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="OpT-wC-XPS"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="110" id="OpT-wC-XPS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -162,7 +162,7 @@
                             <constraint firstItem="XZ7-s5-Jby" firstAttribute="centerX" secondItem="KeC-rx-VAT" secondAttribute="centerX" id="8Kb-c2-WmG"/>
                             <constraint firstItem="W7E-YB-IWg" firstAttribute="trailing" secondItem="lJD-2N-E0u" secondAttribute="trailing" constant="20" id="9xd-hh-M5z"/>
                             <constraint firstItem="lJD-2N-E0u" firstAttribute="top" secondItem="OPB-0j-GTv" secondAttribute="bottom" constant="20" id="Fae-Th-gEe"/>
-                            <constraint firstItem="10X-nY-wgT" firstAttribute="top" secondItem="0eg-yi-v2K" secondAttribute="bottom" constant="30" id="Fdv-9x-ihz"/>
+                            <constraint firstItem="10X-nY-wgT" firstAttribute="top" secondItem="0eg-yi-v2K" secondAttribute="bottom" constant="15" id="Fdv-9x-ihz"/>
                             <constraint firstItem="10X-nY-wgT" firstAttribute="leading" secondItem="W7E-YB-IWg" secondAttribute="leading" constant="20" id="For-ug-VHF"/>
                             <constraint firstItem="68i-TH-opg" firstAttribute="top" secondItem="W7E-YB-IWg" secondAttribute="top" constant="50" id="GOY-EJ-eIg"/>
                             <constraint firstItem="XKg-1F-l0z" firstAttribute="leading" secondItem="W7E-YB-IWg" secondAttribute="leading" id="Hkx-TA-gSK"/>
