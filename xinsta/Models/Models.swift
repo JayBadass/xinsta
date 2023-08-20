@@ -60,7 +60,7 @@ var users: [User] = [User(username: "hojxll_34", bio: "Et per etiam eirmod perse
                      User(username: "5xsoold.", bio: "안녕하세요.", profilePhoto: UIImage(named: "66cc0fed32")!, counts: UserCount(followers: 984, following: 89, posts: 2), password: "aaaaa1"),
                      User(username: "x_dfj.zz", bio: "패션 저장소", profilePhoto: UIImage(named: "fashion")!, counts: UserCount(followers: 167, following: 182, posts: 4), password: "aaaaa1"),
                      User(username: "e.xegg34", bio: "이강인 팬 페이지", profilePhoto: UIImage(named: "gangin")!, counts: UserCount(followers: 43346, following: 20, posts: 5), password: "aaaaa1"),
-                     User(username: "mongmong", bio: "안녕하세요! 저는 몽이라고 해요!", profilePhoto: UIImage(named: "mong")!, counts: UserCount(followers: 28831, following: 183, posts: 16), password: "aaaaa1"),
+                     User(username: "mongmong", bio: "몽", profilePhoto: UIImage(named: "mong")!, counts: UserCount(followers: 28831, following: 183, posts: 16), password: "aaaaa1"),
                      User(username: "xjongwon", bio: "그게 자랑이에유?", profilePhoto: UIImage(named: "food")!, counts: UserCount(followers: 11855, following: 253, posts: 9), password: "aaaaa1"),
                      User(username: "xcalibur", bio: "", profilePhoto: UIImage(named: "trip")! , counts: UserCount(followers: 9999, following: 112, posts: 8), password: "aaaaa1")
 ]
