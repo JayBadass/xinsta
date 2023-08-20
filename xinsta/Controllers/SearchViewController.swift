@@ -113,6 +113,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         // 세그웨이 실행
         self.performSegue(withIdentifier: "YourSegueIdentifier", sender: self)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -127,14 +128,14 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
             }
         }
         if segue.identifier == "SearchSegueIdentifier" {
-              if let searchPageViewController = segue.destination as? SearchDetailViewController, let selectedCell = sender as? UITableViewCell {
-                if let indexPath = myTableView.indexPath(for: selectedCell) {
-                  let selectedText = searchResults[indexPath.row]
+            if let searchPageViewController = segue.destination as? SearchDetailViewController {
+                if let indexPath = myTableView.indexPathForSelectedRow {
+                    let selectedText = searchResults[indexPath.row]
                     print(selectedText)
-                  searchPageViewController.selectedUserName = selectedText
+                    searchPageViewController.selectedUserName = selectedText
                 }
-              }
             }
+        }
     }
 }
 extension SearchViewController: UISearchBarDelegate {
@@ -177,8 +178,16 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath)
-        cell.textLabel?.text = searchResults[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! SearchResultTableViewCell  // ResultCell로 캐스팅
+        let username = searchResults[indexPath.row]
+        
+        // users 배열에서 해당 username에 대한 User 객체 찾기
+        if let user = users.first(where: { $0.username == username }) {
+            cell.profileUserName?.text = user.username
+            cell.profileImageView.image = user.profilePhoto
+            cell.profileImageView.circleImage = true
+        }
+
         return cell
     }
     

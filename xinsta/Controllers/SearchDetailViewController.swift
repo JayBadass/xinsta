@@ -20,7 +20,9 @@ class SearchDetailViewController: UIViewController, UICollectionViewDataSource, 
     var selectedUserName: String?
     
     var isExpanded = false
-    let images = posts.filter {$0.owner == myInfo!}.map {$0.thumbnailImage}
+    var images: [UIImage] = []
+    
+    //let images = posts.filter {$0.owner == selectedUserName!}.map {$0.thumbnailImage}
     // $0.owner == myInfo! -> myInfo 부분을 tableViewCell 에 있는 유저의 이름으로 변경
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,11 +33,15 @@ class SearchDetailViewController: UIViewController, UICollectionViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarController?.tabBar.isHidden = true
         setupUI()
     }
     
     func setupUI() {
-        guard let myProfile = users.first(where: {$0.username == myInfo!}) else { return }
+        
+        images = posts.filter {$0.owner == selectedUserName}.map {$0.thumbnailImage!}
+        
+        guard let myProfile = users.first(where: {$0.username == selectedUserName!}) else { return }
         //$0.username == myInfo! -> myInfo 부분을 tableViewCell 에 있는 유저의 이름으로 변경
         
 //        profilePageNavigationItem.title = myProfile.username

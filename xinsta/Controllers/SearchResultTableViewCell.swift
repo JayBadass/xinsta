@@ -7,9 +7,12 @@
 
 import UIKit
 
-class SearchResultTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var resultTableView: UILabel!
+class SearchResultTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileUserName: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
