@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Post View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AddPostPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="AddPostViewController" customModule="xinsta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dyW-Ai-Rp6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyn-vq-e9O">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="새 게시물" id="Jzd-yE-grH">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="4ZU-7L-Vwg">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="Y6W-OH-hqX" id="nRI-pY-tk4"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="paperplane.fill" catalog="system" id="a7V-rx-ZTC">
+                                            <connections>
+                                                <action selector="addPostButtonTapped:" destination="Y6W-OH-hqX" id="MTB-7C-tAX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JeT-wT-UEU">
+                                <rect key="frame" x="0.0" y="103" width="393" height="393"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JeT-wT-UEU" secondAttribute="height" multiplier="1:1" id="O7Y-CL-mYn"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixq-qE-sO8">
+                                <rect key="frame" x="0.0" y="442" width="75" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="2eA-sG-BVB"/>
+                                    <constraint firstAttribute="height" constant="54" id="Cmv-yF-yiX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="-12" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="-43" minY="0.0" maxX="0.0" maxY="-21"/>
+                                <inset key="imageEdgeInsets" minX="23" minY="-19" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="사진 선택" image="camera.badge.ellipsis" catalog="system">
+                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="pickImageButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="TE0-D7-d25"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rDj-kL-GMd">
+                                <rect key="frame" x="16" y="512" width="361" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="DLD-xe-ez6"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1cr-he-cJY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JeT-wT-UEU" firstAttribute="leading" secondItem="1cr-he-cJY" secondAttribute="leading" id="6t0-gb-5X5"/>
+                            <constraint firstItem="tyn-vq-e9O" firstAttribute="leading" secondItem="1cr-he-cJY" secondAttribute="leading" id="Cjl-x0-dof"/>
+                            <constraint firstItem="ixq-qE-sO8" firstAttribute="leading" secondItem="1cr-he-cJY" secondAttribute="leading" id="DHY-in-kaT"/>
+                            <constraint firstItem="tyn-vq-e9O" firstAttribute="trailing" secondItem="1cr-he-cJY" secondAttribute="trailing" id="KiW-1n-9u8"/>
+                            <constraint firstItem="rDj-kL-GMd" firstAttribute="centerX" secondItem="JeT-wT-UEU" secondAttribute="centerX" id="NLh-6q-nXL"/>
+                            <constraint firstItem="rDj-kL-GMd" firstAttribute="leading" secondItem="dyW-Ai-Rp6" secondAttribute="leadingMargin" id="OYg-aW-Xoi"/>
+                            <constraint firstItem="JeT-wT-UEU" firstAttribute="trailing" secondItem="1cr-he-cJY" secondAttribute="trailing" id="PRo-Vj-prJ"/>
+                            <constraint firstItem="rDj-kL-GMd" firstAttribute="top" secondItem="JeT-wT-UEU" secondAttribute="bottom" constant="16" id="Q9f-fI-JGk"/>
+                            <constraint firstItem="ixq-qE-sO8" firstAttribute="leading" secondItem="JeT-wT-UEU" secondAttribute="leading" id="UIP-ux-SjT"/>
+                            <constraint firstItem="tyn-vq-e9O" firstAttribute="top" secondItem="1cr-he-cJY" secondAttribute="top" id="V9M-dT-172"/>
+                            <constraint firstItem="ixq-qE-sO8" firstAttribute="bottom" secondItem="JeT-wT-UEU" secondAttribute="bottom" id="hvB-bw-XQM"/>
+                            <constraint firstItem="JeT-wT-UEU" firstAttribute="top" secondItem="tyn-vq-e9O" secondAttribute="bottom" id="uiD-zx-A2G"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="addPost" selectedImage="addPost" id="j9R-6v-ooH"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addPostButton" destination="a7V-rx-ZTC" id="LcS-Ta-c0Q"/>
+                        <outlet property="postImageView" destination="JeT-wT-UEU" id="2Y2-4R-adN"/>
+                        <outlet property="postTextView" destination="rDj-kL-GMd" id="DyR-EI-fYC"/>
+                        <outlet property="postTextViewHeightConstraint" destination="DLD-xe-ez6" id="lUm-vd-fkb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="106.10687022900763" y="-34.507042253521128"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="addPost" width="24" height="24"/>
+        <image name="camera.badge.ellipsis" catalog="system" width="128" height="94"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="119"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
