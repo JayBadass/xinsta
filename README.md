@@ -65,7 +65,7 @@
 ## 👍 개발자
 - 이종범 - [JayBadass](https://github.com/JayBadass)
 - 이재희 - [LeeJaeheee](https://github.com/LeeJaeheee)
-- 이정민 - [user2rum](https://github.com/user2rum)
+- 조재민 - [user2rum](https://github.com/user2rum)
 - 이동건 - [gunnieee](https://github.com/gunnieee)
 
 
